@@ -9,7 +9,8 @@ Kidoz adMob mediation adapter
 
 * Define Interstitial Custom event as explained [HERE](https://support.google.com/admob/answer/3083407):
  
-* Set the full path of the file in your project in the `Class Name` field
+* Set the full path of the file in your project in the `Class Name` field </br>
+(Example: your.package.name.KidozAdMobMediationInterstitial.java)
 
 </br>
 <a href="url"><img src="https://s3.amazonaws.com/kidoz-cdn/sdk/GitHub_Tutorial_Img/custom_event_tut.JPG" align="left" height="312" width="800" ></a></br></br></br>   
