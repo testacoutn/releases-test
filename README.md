@@ -14,7 +14,7 @@ Kidoz adMob mediation adapter
 
 </br>
 <a href="url"><img src="https://s3.amazonaws.com/kidoz-cdn/sdk/GitHub_Tutorial_Img/custom_event_tut.JPG" align="left" height="312" width="800" ></a></br></br></br>   
-<\br>
+</br>
 
 # Lounch your Admob intersitial code
 ```javascript
