@@ -13,10 +13,12 @@ Kidoz adMob mediation adapter
 (Example: your.package.name.KidozAdMobMediationInterstitial.java)
 
 </br>
-<a href="url"><img src="https://s3.amazonaws.com/kidoz-cdn/sdk/GitHub_Tutorial_Img/custom_event_tut.JPG" align="left" height="312" width="800" ></a></br></br></br>   
+<a href="url"><img src="https://s3.amazonaws.com/kidoz-cdn/sdk/GitHub_Tutorial_Img/custom_event_tut.JPG" align="left" height="312" width="800" ></a>
 </br>
+</br>
+</br>   
 
-# Lounch your Admob intersitial code
+#Lounch your Admob intersitial code
 ```javascript
 
  	/** Initiate Kidoz SDK by creating an SdkControler instance
