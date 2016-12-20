@@ -13,7 +13,7 @@ Kidoz adMob mediation adapter
 (Example: your.package.name.KidozAdMobMediationInterstitial.java)
 
 </br>
-<a href="url"><img src="https://s3.amazonaws.com/kidoz-cdn/sdk/GitHub_Tutorial_Img/custom_event_tut.JPG" align="left" height="330" width="830" ></a>
+<a href="url"><img src="https://s3.amazonaws.com/kidoz-cdn/sdk/GitHub_Tutorial_Img/custom_event_tut.JPG" align="left" height="360" width="860" ></a>
 </br>
 </br>
 </br>   
