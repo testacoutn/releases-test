@@ -2,6 +2,9 @@ package com.kidoz.sdk.sample.app.SampleAds;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.reward.RewardItem;
+import com.google.android.gms.ads.reward.RewardedVideoAd;
+import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 import com.kidoz.sdk.sample.app.SampleAds.model.SampleAdsAdMobModel;
 
 /**
@@ -10,9 +13,10 @@ import com.kidoz.sdk.sample.app.SampleAds.model.SampleAdsAdMobModel;
 
 public class SampleAdsPresenter_Admob_Impl implements SampleAdsPresenter
 {
-    private static final boolean ADMOB_IS_TESTING = true;
+    private static final boolean ADMOB_IS_TESTING = false;
 
     private static final String ADMOB_INTERSTITIAL_NOT_LOADED = "The interstitial wasn't loaded yet.";
+    private static final String ADMOB_REWADED_NOT_LOADED = "Rewarded video wasn't loaded yet.";
 
     private SampleAdsView mMainView;
     private SampleAdsAdMobModel mAdMobModel;
@@ -22,10 +26,11 @@ public class SampleAdsPresenter_Admob_Impl implements SampleAdsPresenter
         mMainView = mainView;
         mAdMobModel = new SampleAdsAdMobModel();
 
-        setupAdMobAds();
+        setupAdMobInterstitial();
+        setupAdMobRewarded();
     }
 
-    private void setupAdMobAds()
+    private void setupAdMobInterstitial()
     {
         mAdMobModel.setupAdMobInterstitial(new AdListener()
         {
@@ -66,7 +71,6 @@ public class SampleAdsPresenter_Admob_Impl implements SampleAdsPresenter
         }, mMainView.getActivity());
     }
 
-
     @Override
     public void onCreate()
     {
@@ -76,12 +80,14 @@ public class SampleAdsPresenter_Admob_Impl implements SampleAdsPresenter
     @Override
     public void onClick_LoadInterstitial()
     {
+        mMainView.showFeedBackText("AdMob | trying to load interstitial ad...");
         mAdMobModel.loadInterstitial(ADMOB_IS_TESTING);
     }
 
     @Override
     public void onClick_ShowInterstitial()
     {
+        mMainView.showFeedBackText("AdMob | trying to show ad...");
         InterstitialAd adMobInterstitial = mAdMobModel.getAdMobInterstitial();
         if (adMobInterstitial.isLoaded()) {
             adMobInterstitial.show();
@@ -90,15 +96,71 @@ public class SampleAdsPresenter_Admob_Impl implements SampleAdsPresenter
         }
     }
 
+
+    //Rewarded Video
+    private void setupAdMobRewarded()
+    {
+        mAdMobModel.setupAdMobRewarded(new RewardedVideoAdListener()
+        {
+            @Override
+            public void onRewardedVideoAdLoaded()
+            {
+                mMainView.showFeedBackText("AdMob | onRewardedVideoAdLoaded()");
+            }
+
+            @Override
+            public void onRewardedVideoAdOpened()
+            {
+                mMainView.showFeedBackText("AdMob | onRewardedVideoAdOpened()");
+            }
+
+            @Override
+            public void onRewardedVideoStarted()
+            {
+                mMainView.showFeedBackText("AdMob | onRewardedVideoStarted()");
+            }
+
+            @Override
+            public void onRewardedVideoAdClosed()
+            {
+                mMainView.showFeedBackText("AdMob | onRewardedVideoAdClosed()");
+            }
+
+            @Override
+            public void onRewarded(RewardItem rewardItem)
+            {
+                mMainView.showFeedBackText("AdMob | onRewarded | currency: " + rewardItem.getType() + "  amount: " + rewardItem.getAmount());
+            }
+
+            @Override
+            public void onRewardedVideoAdLeftApplication()
+            {
+                mMainView.showFeedBackText("AdMob | onRewardedVideoAdLeftApplication()");
+            }
+
+            @Override
+            public void onRewardedVideoAdFailedToLoad(int i)
+            {
+                mMainView.showFeedBackText("AdMob | onRewardedVideoAdFailedToLoad(" + i + ").");
+            }
+        }, mMainView.getActivity());
+    }
+
     @Override
     public void onClick_LoadRewarded()
     {
-        //TODO: implement!
+        mMainView.showFeedBackText("AdMob | trying to load rewarded ad...");
+        mAdMobModel.loadRewardedVideo(ADMOB_IS_TESTING);
     }
 
     @Override
     public void onClick_ShowRewarded()
     {
-        //TODO: implement!
+        RewardedVideoAd adMobRewarded = mAdMobModel.getAdMobRewarded();
+        if (adMobRewarded.isLoaded()) {
+            adMobRewarded.show();
+        } else {
+            mMainView.showFeedBackText(ADMOB_REWADED_NOT_LOADED);
+        }
     }
 }

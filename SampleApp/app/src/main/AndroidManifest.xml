@@ -9,7 +9,7 @@
         android:icon="@drawable/app_icon_android"
         android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen">
         <activity
-            android:name="com.kidoz.sdk.sample.app.SampleAds.SampleAdsActivity"
+            android:name="com.kidoz.sdk.sample.app.SampleAds.SampleAdsViewActivity"
             android:configChanges="screenLayout|screenSize|orientation|keyboard"
             android:label="@string/app_name"
             android:screenOrientation="portrait">

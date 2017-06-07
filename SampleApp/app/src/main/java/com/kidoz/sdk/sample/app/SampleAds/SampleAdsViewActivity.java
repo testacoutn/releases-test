@@ -12,7 +12,7 @@ import com.kidoz.sdk.sample.app.R;
 /**
  * Created by KIDOZ.
  */
-public class SampleAdsActivity extends Activity implements SampleAdsView
+public class SampleAdsViewActivity extends Activity implements SampleAdsView
 {
     private SampleAdsPresenter mMainPresenter;
 
@@ -96,6 +96,6 @@ public class SampleAdsActivity extends Activity implements SampleAdsView
     @Override
     public Activity getActivity()
     {
-        return SampleAdsActivity.this;
+        return SampleAdsViewActivity.this;
     }
 }
