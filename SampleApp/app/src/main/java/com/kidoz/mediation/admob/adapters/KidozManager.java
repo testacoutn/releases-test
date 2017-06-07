@@ -24,16 +24,16 @@ public class KidozManager
     /****************************
      *      Developer API       *
      ****************************/
-    public static void setRewardedEvents(BaseInterstitial.IOnInterstitialRewardedEventListener rewardedListener){
-        mDeveloperRewardedListener = rewardedListener;
-    }
-
     public static void setKidozPublisherId(String publisherId){
         mKidozPublisherId = publisherId;
     }
 
     public static void setKidozPublisherToken(String publisherToken){
         mKidozPublisherToken = publisherToken;
+    }
+
+    public static void setRewardedEvents(BaseInterstitial.IOnInterstitialRewardedEventListener rewardedListener){
+        mDeveloperRewardedListener = rewardedListener;
     }
 
     /****************************

@@ -17,14 +17,14 @@ import com.kidoz.sdk.api.ui_views.interstitial.BaseInterstitial;
  * Created by orikam on 07/06/2017.
  */
 
-public class OlderRewardedAdapter implements CustomEventInterstitial
+public class KidozAdMobMediationRewardedAdapterOLDER implements CustomEventInterstitial
 {
     private static final String TAG = "KidozAdMobMediationAdapter";
 
     private KidozManager mKidozManager;
     private CustomEventInterstitialListener mAdMobCustomInterstitialListener;
 
-    public OlderRewardedAdapter() {
+    public KidozAdMobMediationRewardedAdapterOLDER() {
         mKidozManager = new KidozManager();
     }
 
@@ -40,12 +40,12 @@ public class OlderRewardedAdapter implements CustomEventInterstitial
             return;
         }
 
+        setKidozAd((Activity) context);
+
         //Kidoz must be initialized before an ad can be requested
         if (!mKidozManager.getIsKidozInitialized())
         {
             initKidoz((Activity) context);
-
-            setKidozAd((Activity) context); //and then continue request
 
         } else {
             continueRequestInterstitialAd();
