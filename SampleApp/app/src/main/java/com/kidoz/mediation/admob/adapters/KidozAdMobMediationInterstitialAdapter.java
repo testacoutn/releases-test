@@ -40,13 +40,12 @@ public class KidozAdMobMediationInterstitialAdapter implements CustomEventInters
             return;
         }
 
+        setKidozAd((Activity) context); //and then continue request
+
         //Kidoz must be initialized before an ad can be requested
         if (!mKidozManager.getIsKidozInitialized())
         {
             initKidoz((Activity) context);
-
-            setKidozAd((Activity) context); //and then continue request
-
         } else {
             continueRequestInterstitialAd();
         }

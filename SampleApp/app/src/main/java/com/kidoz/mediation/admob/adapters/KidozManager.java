@@ -47,7 +47,6 @@ public class KidozManager
     protected void setupKidozRewadrded(Activity activity, BaseInterstitial.IOnInterstitialEventListener interstitialListener, BaseInterstitial.IOnInterstitialRewardedEventListener rewardedListener){
         mKidozRewarded = new KidozInterstitial(activity, KidozInterstitial.AD_TYPE.REWARDED_VIDEO);
         mKidozRewarded.setOnInterstitialEventListener(interstitialListener);
-
         mKidozRewarded.setOnInterstitialRewardedEventListener(rewardedListener);
     }
 
