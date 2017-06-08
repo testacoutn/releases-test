@@ -29,7 +29,7 @@ KidozManager.setRewardedEvents(<new BaseInterstitial.IOnInterstitialRewardedEven
 
 * Include the 'com.kidoz.mediation.admob.adapters' package in your project.
 
-* Define one or more from the Kidoz Interstitial/Rewarded Video Custom events as explained [HERE](https://support.google.com/admob/answer/3083407):
+* Define Kidoz Interstitial and/or Rewarded Video Custom events as explained [HERE](https://support.google.com/admob/answer/3083407):
  
 ## KIDOZ Interstitial Adapter
 * Set the following full path in the `Class Name` field: </br>
