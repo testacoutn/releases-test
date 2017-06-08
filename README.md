@@ -7,6 +7,7 @@ Kidoz AdMob mediation adapter
 1. AdMob Mediation integrated in your project.
 2. A fully functional AdMob ad placement.
 3. Kidoz SDK built with your project.
+
 3.1. You can get Kidoz SDK as a Gradle dependency (together with it's needed dependencies) using the following lines:
 ```
     compile group: 'org.greenrobot', name: 'eventbus', version: '3.0.0'
@@ -14,12 +15,16 @@ Kidoz AdMob mediation adapter
     compile 'com.kidoz.sdk:KidozSDK:0.8.0.0@aar'
 ```
 3.2. Please make sure you have a set up Kidoz publisher account.
-3.3. Set your Kidoz PublisherId & PublisherToken in the adapter using the following:
+3.3. The plugin itself consists of the java files inside the above sample app, copy this entire package to your own project:
+```
+SampleApp/app/src/main/java/com/kidoz/mediation/admob/adapters/
+```
+3.4. Set your Kidoz PublisherId & PublisherToken in the adapter using the following:
 ```
 KidozManager.setKidozPublisherId(<publisherId>)
 KidozManager.setKidozPublisherToken(<publisherToken>)
 ```
-3.4. If you want to connect directly with the Kidoz reward events use the following:
+3.5. If you want to connect directly with the Kidoz reward events use the following:
 ```
 KidozManager.setRewardedEvents(<new BaseInterstitial.IOnInterstitialRewardedEventListener>);
 ```
