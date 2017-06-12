@@ -5,7 +5,7 @@ android {
     buildToolsVersion '25.0.0'
 
     defaultConfig {
-        applicationId "kidoz.sdk.sample"
+        applicationId "kidoz.sdk.sample.app.SampleAds"
         minSdkVersion 14
         targetSdkVersion 24
         versionCode 100
@@ -38,7 +38,7 @@ dependencies {
     compile 'com.kidoz.sdk:KidozSDK:0.8.0.0@aar'
 
     //Kidoz AdMob Plugin
-    compile project (':KidozAdMobPlugin')
+    compile project (':kidoz-admob')
 }
 
 configurations.all {
