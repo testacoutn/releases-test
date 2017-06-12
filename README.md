@@ -16,6 +16,7 @@ Kidoz AdMob mediation adapter
 ```
 3.2. Please make sure you have a set up Kidoz publisher account.
 3.3. The plugin itself consists of the java files inside the 'pluginFiles' directory, copy this entire package to your own project.
+
 3.4. Set your Kidoz PublisherId & PublisherToken in the adapter using the following:
 ```
 KidozManager.setKidozPublisherId(<publisherId>)
