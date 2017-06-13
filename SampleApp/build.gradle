@@ -3,6 +3,8 @@ apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 apply plugin: 'maven-publish'
 
+//POM is built using (in terminal): mvn package -Dandroid.sdk.path=/Users/orikam/Library/Android/sdk (./executeMavenBuild.exec)
+
 buildscript {
     repositories {
         jcenter()

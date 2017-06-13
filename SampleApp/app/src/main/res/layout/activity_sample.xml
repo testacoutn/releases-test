@@ -82,4 +82,49 @@
             android:text="Show"/>
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AdMobBnr:"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/banner_load"
+            android:text="Load"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/banner_show"
+            android:text="Show"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#40101010">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="AdMob Banner"
+            android:textColor="#FFEAEAEA"
+            android:layout_alignParentTop="true"/>
+
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/admob_banner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            ads:adSize="MEDIUM_RECTANGLE"
+            ads:adUnitId="ca-app-pub-5967470543517808/7955427179">
+            <!-- adSize is a String constant from: https://developers.google.com/admob/android/banner#banner_sizes -->
+        </com.google.android.gms.ads.AdView>
+    </RelativeLayout>
+
 </LinearLayout>

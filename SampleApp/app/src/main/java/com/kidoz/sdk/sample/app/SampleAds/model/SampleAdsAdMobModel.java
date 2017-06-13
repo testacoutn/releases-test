@@ -4,10 +4,12 @@ import android.app.Activity;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.reward.RewardedVideoAd;
 import com.google.android.gms.ads.reward.RewardedVideoAdListener;
+import com.kidoz.sdk.sample.app.R;
 
 /**
  * Created by orikam on 07/06/2017.
@@ -24,8 +26,11 @@ public class SampleAdsAdMobModel
 
     private InterstitialAd mAdMobInterstitialAd;
     private RewardedVideoAd mAdMobRewarded;
+    private AdView mAdMobBanner;
 
-    //Interstitial
+    /****************
+     * Interstitial *
+     ****************/
     public void setupAdMobInterstitial(AdListener adListener, Activity activity)
     {
         mAdMobInterstitialAd = new InterstitialAd(activity);
@@ -52,7 +57,9 @@ public class SampleAdsAdMobModel
         return mAdMobInterstitialAd;
     }
 
-    //Rewarded Video
+    /******************
+     * Rewarded Video *
+     ******************/
     public void setupAdMobRewarded(RewardedVideoAdListener videoListener, Activity activity)
     {
         mAdMobRewarded = MobileAds.getRewardedVideoAdInstance(activity);
@@ -72,5 +79,24 @@ public class SampleAdsAdMobModel
     public RewardedVideoAd getAdMobRewarded()
     {
         return mAdMobRewarded;
+    }
+
+    /**********
+     * Banner *
+     **********/
+    public void setupAdMobBanner(Activity activity)
+    {
+        mAdMobBanner = (AdView) activity.findViewById(R.id.admob_banner);
+    }
+
+    public void loadBanner()
+    {
+        AdRequest bannerAdRequest = new AdRequest.Builder().build();
+        mAdMobBanner.loadAd(bannerAdRequest);
+    }
+
+    public void showBanner()
+    {
+
     }
 }

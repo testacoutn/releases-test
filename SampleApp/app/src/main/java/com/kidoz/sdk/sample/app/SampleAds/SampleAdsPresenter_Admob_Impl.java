@@ -28,6 +28,12 @@ public class SampleAdsPresenter_Admob_Impl implements SampleAdsPresenter
 
         setupAdMobInterstitial();
         setupAdMobRewarded();
+        setupAdMobBanner();
+    }
+
+    private void setupAdMobBanner()
+    {
+        mAdMobModel.setupAdMobBanner(mMainView.getActivity());
     }
 
     private void setupAdMobInterstitial()
@@ -162,5 +168,17 @@ public class SampleAdsPresenter_Admob_Impl implements SampleAdsPresenter
         } else {
             mMainView.showFeedBackText(ADMOB_REWADED_NOT_LOADED);
         }
+    }
+
+    @Override
+    public void onClick_LoadBanner()
+    {
+        mAdMobModel.loadBanner();
+    }
+
+    @Override
+    public void onClick_ShowBanner()
+    {
+        mAdMobModel.showBanner();
     }
 }

@@ -1,0 +1,1 @@
+mvn package -Dandroid.sdk.path=/Users/orikam/Library/Android/sdk
