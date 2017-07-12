@@ -42,6 +42,10 @@ KidozManager.setRewardedEvents(<new BaseInterstitial.IOnInterstitialRewardedEven
 * Set the following full path in the `Class Name` field: </br>
 (Example: com.kidoz.mediation.admob.adapters.KidozAdMobMediationRewardedAdapter.java)
 </br>
+## KIDOZ Banner Adapter
+* Set the following full path in the `Class Name` field: </br>
+(Example: com.kidoz.mediation.admob.adapters.KidozAdMobMediationBannerAdapter.java)
+</br>
 * Please Note: you can change the Kidoz adapter classpath in your project but maker sure the class names you put in the AdMob dashboard correspond to your final adapter location.
 
 <a href="url"><img src="https://s3.amazonaws.com/kidoz-cdn/sdk/GitHub_Tutorial_Img/custom_event_tut.JPG" align="left" height="320" width="720" ></a>
@@ -49,7 +53,7 @@ KidozManager.setRewardedEvents(<new BaseInterstitial.IOnInterstitialRewardedEven
 </br>
 </br>   
 
-
+</br> 
 License
 --------
 
