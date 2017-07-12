@@ -179,6 +179,6 @@ public class SampleAdsPresenter_Admob_Impl implements SampleAdsPresenter
     @Override
     public void onClick_ShowBanner()
     {
-        mAdMobModel.showBanner();
+        mAdMobModel.showBanner(); ////admob loads and shows on loadAd() call (this call does nothing atm).
     }
 }

@@ -97,6 +97,6 @@ public class SampleAdsAdMobModel
 
     public void showBanner()
     {
-
+        //admob loads and shows on loadAd() call.
     }
 }

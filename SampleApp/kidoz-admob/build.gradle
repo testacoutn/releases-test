@@ -26,8 +26,9 @@ android {
 }
 
 dependencies {
+    provided 'com.google.android.gms:play-services-ads:10.2.4'
     provided group: 'org.greenrobot', name: 'eventbus', version: '3.0.0'
     provided 'com.android.support:support-v4:25.0.+'
-    provided 'com.kidoz.sdk:KidozSDK:0.8.0.0@aar'
-    provided 'com.google.android.gms:play-services-ads:10.2.4'
+    provided 'com.kidoz.sdk:KidozSDK:0.8.1.0@aar'
+//    provided fileTree(dir: 'libs', include: '*.jar')
 }

@@ -95,12 +95,6 @@
             android:layout_height="wrap_content"
             android:id="@+id/banner_load"
             android:text="Load"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/banner_show"
-            android:text="Show"/>
     </LinearLayout>
 
     <RelativeLayout
@@ -121,10 +115,11 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
-            ads:adSize="MEDIUM_RECTANGLE"
-            ads:adUnitId="ca-app-pub-5967470543517808/7955427179">
+            ads:adSize="BANNER"
+            ads:adUnitId="ca-app-pub-5967470543517808/9432160371"/>
+            <!-- Banner Issue: AdMob takes our banner's html, and uses its own defined body background color, if doesn't exist, it uses the html tag's background color. As long as we're transparent in both Admob will not show that color as a background to their own webview -->
             <!-- adSize is a String constant from: https://developers.google.com/admob/android/banner#banner_sizes -->
-        </com.google.android.gms.ads.AdView>
+
     </RelativeLayout>
 
 </LinearLayout>

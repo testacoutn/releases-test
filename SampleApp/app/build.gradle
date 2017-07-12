@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "kidoz.sdk.sample.app.SampleAds"
-        minSdkVersion 14
+        minSdkVersion 17
         targetSdkVersion 24
         versionCode 100
         versionName "1.0.0"
@@ -35,7 +35,8 @@ dependencies {
     //Kidoz SDK
     compile group: 'org.greenrobot', name: 'eventbus', version: '3.0.0'
     compile 'com.android.support:support-v4:23.0.+'
-    compile 'com.kidoz.sdk:KidozSDK:0.8.0.0@aar'
+    compile 'com.kidoz.sdk:KidozSDK:0.8.1.0@aar'
+//    compile fileTree(dir: 'libs', include: '*.jar')
 
     //Kidoz AdMob Plugin
     compile project (':kidoz-admob')
