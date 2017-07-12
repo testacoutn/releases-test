@@ -6,6 +6,9 @@ import com.kidoz.sdk.api.KidozInterstitial;
 import com.kidoz.sdk.api.KidozSDK;
 import com.kidoz.sdk.api.interfaces.SDKEventListener;
 import com.kidoz.sdk.api.ui_views.interstitial.BaseInterstitial;
+import com.kidoz.sdk.api.ui_views.kidoz_banner.KidozBannerListener;
+import com.kidoz.sdk.api.ui_views.new_kidoz_banner.BANNER_POSITION;
+import com.kidoz.sdk.api.ui_views.new_kidoz_banner.KidozBannerView;
 
 /**
  * Created by orikam on 07/06/2017.
@@ -16,6 +19,7 @@ public class KidozManager
 
     private KidozInterstitial mKidozInterstitial;
     private KidozInterstitial mKidozRewarded;
+    private KidozBannerView mKidozBanner;
 
     private static String mKidozPublisherId = "5"; //default (test values)
     private static String mKidozPublisherToken = "i0tnrdwdtq0dm36cqcpg6uyuwupkj76s"; //default (test values)
@@ -39,6 +43,13 @@ public class KidozManager
     /****************************
      *     Adapter Internal     *
      ****************************/
+
+    protected void setupKidozBanner(Activity activity, BANNER_POSITION bannerPosition, KidozBannerListener kidozBannerListener){
+        mKidozBanner = KidozSDK.getKidozBanner(activity);
+        mKidozBanner.setBannerPosition(bannerPosition);
+        mKidozBanner.setKidozBannerListener(kidozBannerListener);
+    }
+
     protected void setupKidozInterstitial(Activity activity, BaseInterstitial.IOnInterstitialEventListener interstitialListener){
         mKidozInterstitial = new KidozInterstitial(activity, KidozInterstitial.AD_TYPE.INTERSTITIAL);
         mKidozInterstitial.setOnInterstitialEventListener(interstitialListener);
@@ -59,6 +70,8 @@ public class KidozManager
     protected boolean getIsKidozInitialized(){
         return KidozSDK.isInitialised();
     }
+
+    protected KidozBannerView getBanner() { return mKidozBanner; }
 
     protected KidozInterstitial getInterstitial(){
         return mKidozInterstitial;
