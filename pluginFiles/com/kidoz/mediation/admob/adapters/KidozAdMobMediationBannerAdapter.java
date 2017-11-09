@@ -34,7 +34,7 @@ public class KidozAdMobMediationBannerAdapter implements CustomEventBanner
     }
 
     @Override
-    public void requestBannerAd(Context context, CustomEventBannerListener customEventBannerListener, String serverParameter, AdSize adSize, MediationAdRequest mediationAdRequest, Bundle bundle)
+    public void requestBannerAd(Context context, CustomEventBannerListener customEventBannerListener, String s, AdSize adSize, MediationAdRequest mediationAdRequest, Bundle bundle)
     {
         mCustomEventBannerListener = customEventBannerListener;
 
@@ -51,8 +51,8 @@ public class KidozAdMobMediationBannerAdapter implements CustomEventBanner
         if (!mKidozManager.getIsKidozInitialized())
         {
 
-            String appID = mKidozMaanager.getPublisherIdFromParams(serverParameter);
-            String token = mKidozManager.getacPublisherTokenFromParams(serverParameter);
+            String appID = mKidozManager.getPublisherIdFromParams(serverParameter);
+            String token = mKidozManager.getPublisherTokenFromParams(serverParameter);
 
             if(appID!=null && token!=null && !appID.equals("") && !token.equals("")) {
                 mKidozManager.setKidozPublisherId(appID);

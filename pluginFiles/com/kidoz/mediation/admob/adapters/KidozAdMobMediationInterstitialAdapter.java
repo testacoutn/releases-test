@@ -29,9 +29,10 @@ public class KidozAdMobMediationInterstitialAdapter implements CustomEventInters
     }
 
     @Override
-    public void requestInterstitialAd(Context context, CustomEventInterstitialListener customEventInterstitialListener, String s, MediationAdRequest mediationAdRequest, Bundle bundle)
+    public void requestInterstitialAd(Context context, CustomEventInterstitialListener customEventInterstitialListener, String serverParameter, MediationAdRequest mediationAdRequest, Bundle bundle)
     {
         mAdMobCustomInterstitialListener = customEventInterstitialListener;
+
 
         //Kidoz requires Activity context to run.
         if (!(context instanceof Activity)){
@@ -43,9 +44,18 @@ public class KidozAdMobMediationInterstitialAdapter implements CustomEventInters
         setKidozAd((Activity) context); //and then continue request
 
         //Kidoz must be initialized before an ad can be requested
-        if (!mKidozManager.getIsKidozInitialized())
-        {
-            initKidoz((Activity) context);
+        if (!mKidozManager.getIsKidozInitialized()) {
+
+            String appID = mKidozManager.getPublisherIdFromParams(serverParameter);
+            String token = mKidozManager.getPublisherTokenFromParams(serverParameter);
+
+            if(appID!=null && token!=null && !appID.equals("") && !token.equals("")) {
+                mKidozManager.setKidozPublisherId(appID);
+                mKidozManager.setKidozPublisherToken(token);
+                initKidoz((Activity) context);
+            }
+
+
         } else {
             continueRequestInterstitialAd();
         }
