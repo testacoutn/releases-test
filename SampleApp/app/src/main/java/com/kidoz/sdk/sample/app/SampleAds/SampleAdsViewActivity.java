@@ -22,6 +22,7 @@ public class SampleAdsViewActivity extends Activity implements SampleAdsView
     private Button mRewardedLoad;
     private Button mRewardedShow;
     private Button mBannerLoad;
+    private Button mBannerClose;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -45,6 +46,7 @@ public class SampleAdsViewActivity extends Activity implements SampleAdsView
         mRewardedLoad = (Button) findViewById(R.id.rewarded_load);
         mRewardedShow = (Button) findViewById(R.id.rewarded_show);
         mBannerLoad = (Button) findViewById(R.id.banner_load);
+        mBannerClose = (Button) findViewById(R.id.banner_close);
     }
 
     private void setButtons()
@@ -93,6 +95,16 @@ public class SampleAdsViewActivity extends Activity implements SampleAdsView
                 mMainPresenter.onClick_LoadBanner();
             }
         });
+
+        mBannerClose.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                mMainPresenter.onClick_CloseBanner();
+            }
+        });
+
     }
 
     @Override

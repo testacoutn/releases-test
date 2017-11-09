@@ -28,6 +28,7 @@ public class SampleAdsAdMobModel
     private RewardedVideoAd mAdMobRewarded;
     private AdView mAdMobBanner;
 
+
     /****************
      * Interstitial *
      ****************/
@@ -45,12 +46,7 @@ public class SampleAdsAdMobModel
 
     public void loadInterstitial(boolean admobIsTesting)
     {
-        AdRequest.Builder requestBuilder = new AdRequest.Builder();
-        if (admobIsTesting){
-            requestBuilder.addTestDevice(ADMOB_TEST_DEVICE_ID);
-        }
-        AdRequest request = requestBuilder.build();
-        mAdMobInterstitialAd.loadAd(request);
+        mAdMobInterstitialAd.loadAd(CreateAdRequest());
     }
 
     public InterstitialAd getAdMobInterstitial(){
@@ -66,14 +62,13 @@ public class SampleAdsAdMobModel
         mAdMobRewarded.setRewardedVideoAdListener(videoListener);
     }
 
-    public void loadRewardedVideo(boolean admobIsTesting){
-        AdRequest.Builder requestBuilder = new AdRequest.Builder();
-        if (admobIsTesting){
-            requestBuilder.addTestDevice(ADMOB_TEST_DEVICE_ID);
-        }
-        AdRequest request = requestBuilder.build();
+    private AdRequest CreateAdRequest(){
+        return new AdRequest.Builder().build();
+    }
 
-        mAdMobRewarded.loadAd(ADMOB_REWARDED_VIDEO_ID, request);
+    public void loadRewardedVideo(boolean admobIsTesting){
+
+        mAdMobRewarded.loadAd(ADMOB_REWARDED_VIDEO_ID, CreateAdRequest());
     }
 
     public RewardedVideoAd getAdMobRewarded()
@@ -84,15 +79,19 @@ public class SampleAdsAdMobModel
     /**********
      * Banner *
      **********/
-    public void setupAdMobBanner(Activity activity)
-    {
+    public void setupAdMobBanner(Activity activity) {
+
         mAdMobBanner = (AdView) activity.findViewById(R.id.admob_banner);
     }
 
     public void loadBanner()
     {
-        AdRequest bannerAdRequest = new AdRequest.Builder().build();
-        mAdMobBanner.loadAd(bannerAdRequest);
+        mAdMobBanner.loadAd(CreateAdRequest());
+    }
+
+    public void closeBanner()
+    {
+        mAdMobBanner.destroy();
     }
 
     public void showBanner()

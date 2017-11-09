@@ -7,8 +7,8 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        versionCode 12
+        versionName "1.2"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -29,6 +29,56 @@ dependencies {
     provided 'com.google.android.gms:play-services-ads:10.2.4'
     provided group: 'org.greenrobot', name: 'eventbus', version: '3.0.0'
     provided 'com.android.support:support-v4:25.0.+'
-    provided 'com.kidoz.sdk:KidozSDK:0.8.1.0@aar'
+    compile 'com.kidoz.sdk:KidozSDK:0.8.2.1@aar'
 //    provided fileTree(dir: 'libs', include: '*.jar')
 }
+
+
+task deleteJarDebug(type: Delete) {
+    delete 'outputs/jar/kidoz-admob-debug.jar'
+}
+
+task createJarDebug(type: Copy) {
+    from('build/intermediates/bundles/debug/')
+    into('build/outputs/jar')
+    include('classes.jar')
+    rename('classes.jar', 'kidoz-admob-debug.jar')
+}
+
+/*libraryVariants.all { variant ->
+    variant.outputs.each { output ->
+        def outputFile = output.outputFile
+        if (outputFile != null && outputFile.name.endsWith('.aar')) {
+            def fileName = "${archivesBaseName}-${version}.aar"
+            output.outputFile = new File(outputFile.parent, fileName)
+        }
+    }
+}*/
+createJarDebug.dependsOn(deleteJarDebug)
+
+//execute debug Jar creation after last build task
+tasks.whenTaskAdded { task ->
+    if (task.name == 'bundleDebug') {
+        task.finalizedBy createJarDebug
+    }
+}
+
+// delete & recreate release Jar
+task deleteJarRelease(type: Delete) {
+    delete 'outputs/jar/kidoz-admob-release.jar'
+}
+
+task createJarRelease(type: Copy) {
+    from('build/intermediates/bundles/default/') //not clear why under this project 'release' folder is called 'default'
+    into('build/outputs/jar')
+    include('classes.jar')
+    rename('classes.jar', 'kidoz-admob-release.jar')
+}
+
+//execute debug Jar creation after last build task
+tasks.whenTaskAdded { task ->
+    if (task.name == 'bundleRelease') {
+        task.finalizedBy createJarRelease
+    }
+}
+

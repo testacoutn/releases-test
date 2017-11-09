@@ -181,4 +181,10 @@ public class SampleAdsPresenter_Admob_Impl implements SampleAdsPresenter
     {
         mAdMobModel.showBanner(); ////admob loads and shows on loadAd() call (this call does nothing atm).
     }
+
+    @Override
+    public void onClick_CloseBanner()
+    {
+        mAdMobModel.closeBanner();
+    }
 }

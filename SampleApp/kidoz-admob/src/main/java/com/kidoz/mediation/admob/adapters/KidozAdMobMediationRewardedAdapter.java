@@ -31,10 +31,9 @@ public class KidozAdMobMediationRewardedAdapter implements MediationRewardedVide
     }
 
     @Override
-    public void initialize(Context context, MediationAdRequest mediationAdRequest, String s, MediationRewardedVideoAdListener mediationRewardedVideoAdListener, Bundle bundle, Bundle bundle1)
+    public void initialize(Context context, MediationAdRequest mediationAdRequest, String unused, MediationRewardedVideoAdListener mediationRewardedVideoAdListener, Bundle serverParameters, Bundle networkExtras)
     {
         mMediationRewardedVideoAdListener = mediationRewardedVideoAdListener;
-
         //Kidoz requires Activity context to run.
         if (!(context instanceof Activity)){
             Log.d(TAG, "Kidoz | requestInterstitialAd with non Activity context");
@@ -45,11 +44,25 @@ public class KidozAdMobMediationRewardedAdapter implements MediationRewardedVide
         setKidozAd((Activity) context);
 
         //Kidoz must be initialized before an ad can be requested
-        if (!mKidozManager.getIsKidozInitialized())
-        {
-            initKidoz((Activity) context);
+        if (!mKidozManager.getIsKidozInitialized()) {
 
-        }
+            if(serverParameters!=null) {
+                String parameter = serverParameters.getString(MediationRewardedVideoAdAdapter.CUSTOM_EVENT_SERVER_PARAMETER_FIELD);
+                String appID = mKidozManager.getPublisherIdFromParams(parameter);
+                String token = mKidozManager.getPublisherTokenFromParams(parameter);
+
+                if(appID!=null && token!=null && !appID.equals("") && !token.equals("")) {
+                    mKidozManager.setKidozPublisherId(appID);
+                    mKidozManager.setKidozPublisherToken(token);
+                    initKidoz((Activity) context);
+                }
+            }
+
+        } else {
+
+          mInitializedState = true;
+          mMediationRewardedVideoAdListener.onInitializationSucceeded(KidozAdMobMediationRewardedAdapter.this);}
+
     }
 
     private void setKidozAd(Activity activity)
@@ -127,7 +140,7 @@ public class KidozAdMobMediationRewardedAdapter implements MediationRewardedVide
             @Override
             public void onInitSuccess()
             {
-                mInitializedState = true;
+                mInitializedState = false;
                 mMediationRewardedVideoAdListener.onInitializationSucceeded(KidozAdMobMediationRewardedAdapter.this);
                 Log.d(TAG, "Kidoz | onInitSuccess");
             }

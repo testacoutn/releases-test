@@ -1,6 +1,7 @@
 package com.kidoz.mediation.admob.adapters;
 
 import android.app.Activity;
+import android.util.Log;
 
 import com.kidoz.sdk.api.KidozInterstitial;
 import com.kidoz.sdk.api.KidozSDK;
@@ -9,6 +10,9 @@ import com.kidoz.sdk.api.ui_views.interstitial.BaseInterstitial;
 import com.kidoz.sdk.api.ui_views.kidoz_banner.KidozBannerListener;
 import com.kidoz.sdk.api.ui_views.new_kidoz_banner.BANNER_POSITION;
 import com.kidoz.sdk.api.ui_views.new_kidoz_banner.KidozBannerView;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Created by orikam on 07/06/2017.
@@ -20,9 +24,11 @@ public class KidozManager
     private KidozInterstitial mKidozInterstitial;
     private KidozInterstitial mKidozRewarded;
     private KidozBannerView mKidozBanner;
+    private static final String TAG = "KidozManager";
 
-    private static String mKidozPublisherId = "5"; //default (test values)
-    private static String mKidozPublisherToken = "i0tnrdwdtq0dm36cqcpg6uyuwupkj76s"; //default (test values)
+
+    private static String mKidozPublisherId = ""; //default (test values)
+    private static String mKidozPublisherToken = ""; //default (test values)
     private static BaseInterstitial.IOnInterstitialRewardedEventListener mDeveloperRewardedListener;
 
     /****************************
@@ -83,5 +89,50 @@ public class KidozManager
 
     protected BaseInterstitial.IOnInterstitialRewardedEventListener getDeveloperRewardedListener(){
         return mDeveloperRewardedListener;
+    }
+
+    protected static String getPublisherIdFromParams(String params) {
+        String appID = null;
+        if (params != null && !params.equals("")) {
+            JSONObject jsonParams ;
+            try
+            {
+                jsonParams = new JSONObject(params);
+                if (jsonParams!=null && jsonParams.has("AppID"))
+                    appID = jsonParams.getString("AppID");
+                else
+                    Log.d(TAG, "Kidoz | PublisherId parameter - Token AppID");
+            } catch (JSONException e) {
+                e.printStackTrace();
+                Log.d(TAG, "Kidoz | PublisherId parameter error");
+            }
+        }else {
+            Log.d(TAG, "Kidoz | PublisherId parameter empty");
+        }
+        return appID;
+    }
+
+
+    protected static String getPublisherTokenFromParams(String params) {
+        String token = null;
+        if (params != null && !params.equals("")) {
+            JSONObject jsonParams ;
+            try
+            {
+                jsonParams = new JSONObject(params);
+                if (jsonParams!=null && jsonParams.has("Token"))
+                    token = jsonParams.getString("Token");
+                else
+                    Log.d(TAG, "Kidoz | PublisherToken parameter - Token error");
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+                Log.d(TAG, "Kidoz | PublisherToken parameter error");
+            }
+
+        }else {
+            Log.d(TAG, "Kidoz | PublisherToken parameter empty");
+        }
+        return token;
     }
 }
