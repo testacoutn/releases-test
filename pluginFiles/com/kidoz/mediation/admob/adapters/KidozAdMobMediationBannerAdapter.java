@@ -34,7 +34,7 @@ public class KidozAdMobMediationBannerAdapter implements CustomEventBanner
     }
 
     @Override
-    public void requestBannerAd(Context context, CustomEventBannerListener customEventBannerListener, String s, AdSize adSize, MediationAdRequest mediationAdRequest, Bundle bundle)
+    public void requestBannerAd(Context context, CustomEventBannerListener customEventBannerListener, String serverParameter, AdSize adSize, MediationAdRequest mediationAdRequest, Bundle bundle)
     {
         mCustomEventBannerListener = customEventBannerListener;
 
