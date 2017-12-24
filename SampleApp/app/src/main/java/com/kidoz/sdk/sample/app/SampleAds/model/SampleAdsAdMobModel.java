@@ -87,7 +87,9 @@ public class SampleAdsAdMobModel
     public void loadBanner()
     {
         mAdMobBanner.loadAd(CreateAdRequest());
+
     }
+
 
     public void closeBanner()
     {

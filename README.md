@@ -8,11 +8,18 @@ Kidoz AdMob mediation adapter
 2. A fully functional AdMob ad placement.
 3. Kidoz SDK built with your project.
 
+```css
+
+*** Please note - Currently Admob mediation is not available for Apps opt-in to Designed For Families program. Google should add this support by February-March 2018.
+Till then, you can integrate KIDOZ ads directly to your apps.
+
+```
+
 3.1. You can get Kidoz SDK as a Gradle dependency (together with it's needed dependencies) using the following lines:
 ```
     compile group: 'org.greenrobot', name: 'eventbus', version: '3.0.0'
     compile 'com.android.support:support-v4:23.0.+'
-    compile 'com.kidoz.sdk:KidozSDK:0.8.2.1@aar'
+    compile 'com.kidoz.sdk:KidozSDK:0.8.3.2@aar'
 ```
 3.2. Please make sure you have a set up Kidoz publisher account.
 3.3. The plugin itself consists of the java files inside the 'pluginFiles' directory, copy this entire package to your own project.
@@ -32,7 +39,6 @@ Or set a Custom Events Parameter:
 
  For Rewarded Video:
  {"AppID":"publisherId", "Token":"publisherToken"}
- 
 ```
 3.5. If you want to connect directly with the Kidoz reward events use the following:
 ```

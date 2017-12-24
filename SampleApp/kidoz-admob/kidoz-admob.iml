@@ -99,8 +99,8 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="support-annotations-25.0.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-ads-10.2.4" level="project" />
-    <orderEntry type="library" exported="" name="KidozSDK-0.8.2.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-base-10.2.4" level="project" />
+    <orderEntry type="library" exported="" name="KidozSDK-0.8.3.2" level="project" />
     <orderEntry type="library" exported="" name="play-services-gass-10.2.4" level="project" />
     <orderEntry type="library" exported="" name="play-services-tasks-10.2.4" level="project" />
     <orderEntry type="library" exported="" name="play-services-basement-10.2.4" level="project" />
