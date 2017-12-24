@@ -70,7 +70,6 @@ KidozManager.setRewardedEvents(<new BaseInterstitial.IOnInterstitialRewardedEven
 
  
 
-</br> 
 License
 --------
 
