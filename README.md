@@ -10,7 +10,7 @@ Kidoz AdMob mediation adapter
 
 ```css
 
-*** Please note - Currently Admob mediation is not available for Apps opt-in to Designed For Families program. Google should add this support by February-March 2018.
+*** Please note - Currently Admob mediation is not available for Apps opt-in to Designed For Families program. Google is planning adding this support in the future.
 Till then, you can integrate KIDOZ ads directly to your apps.
 
 ```
