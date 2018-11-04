@@ -82,6 +82,8 @@ public class SampleAdsAdMobModel
     public void setupAdMobBanner(Activity activity) {
 
         mAdMobBanner = (AdView) activity.findViewById(R.id.admob_banner);
+
+
     }
 
     public void loadBanner()

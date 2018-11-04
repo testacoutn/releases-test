@@ -132,7 +132,7 @@ public class KidozAdMobMediationBannerAdapter implements CustomEventBanner
             @Override
             public void onBannerError(String errorMsg)
             {
-                Log.e(TAG, "onBannerError: " + errorMsg);
+                Log.e(TAG, "kidozBannerAdapter | onBannerError: " + errorMsg);
                 mCustomEventBannerListener.onAdFailedToLoad(AdRequest.ERROR_CODE_NETWORK_ERROR);
             }
 
@@ -141,6 +141,13 @@ public class KidozAdMobMediationBannerAdapter implements CustomEventBanner
             {
                 mCustomEventBannerListener.onAdClosed();
                 Log.d(TAG, "kidozBannerAdapter | onBannerClose");
+            }
+
+            @Override
+            public void onBannerNoOffers()
+            {
+                Log.d(TAG, "kidozBannerAdapter | onBannerNoOffers");
+
             }
         });
         Log.d(TAG, "kidozBannerAdapter | kidozBannerView == null, calling view creation. END");
