@@ -9,7 +9,7 @@ android {
         minSdkVersion 17
         targetSdkVersion 25
         versionCode 15
-        versionName "1.4"
+        versionName "1.5"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -29,7 +29,9 @@ dependencies {
     provided 'com.google.android.gms:play-services-ads:10.2.4'
     provided group: 'org.greenrobot', name: 'eventbus', version: '3.0.0'
     provided 'com.android.support:support-v4:25.0.+'
-    compile 'com.kidoz.sdk:KidozSDK:0.8.8.0@aar'
+    //compile project(path: ':KidozSDK', configuration: 'mainDebug')
+
+    compile 'com.kidoz.sdk:KidozSDK:0.8.8.2@aar'
 
 
 }

@@ -83,7 +83,6 @@ public class SampleAdsAdMobModel
 
         mAdMobBanner = (AdView) activity.findViewById(R.id.admob_banner);
 
-
     }
 
     public void loadBanner()
@@ -96,6 +95,7 @@ public class SampleAdsAdMobModel
     public void closeBanner()
     {
         mAdMobBanner.destroy();
+
     }
 
     public void showBanner()
