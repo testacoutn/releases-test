@@ -1,6 +1,6 @@
 
 # KIDOZ_ADMOB_ADAPTER
-Kidoz AdMob mediation adapter Version 1.4  
+Kidoz AdMob mediation adapter Version 1.5  
 </br>
 
 **Prerequisits:**
