@@ -26,7 +26,7 @@ public class KidozAdMobMediationRewardedAdapter implements MediationRewardedVide
     private boolean mInitializedState;
 
     public KidozAdMobMediationRewardedAdapter() {
-        mKidozManager = new KidozManager();
+        mKidozManager = KidozManager.getInstance();
         mInitializedState = false;
     }
 
@@ -41,7 +41,10 @@ public class KidozAdMobMediationRewardedAdapter implements MediationRewardedVide
             return;
         }
 
-        setKidozAd((Activity) context);
+        if(mKidozManager.getRewarded()==null)
+            mKidozManager.createKidozRewadrded((Activity) context);
+
+        setKidozAd();
 
         //Kidoz must be initialized before an ad can be requested
         if (!mKidozManager.getIsKidozInitialized()) {
@@ -73,35 +76,35 @@ public class KidozAdMobMediationRewardedAdapter implements MediationRewardedVide
                     public void onClosed()
                     {
                         mMediationRewardedVideoAdListener.onAdClosed(KidozAdMobMediationRewardedAdapter.this);
-                        Log.d(TAG, "Kidoz | onAdClosed");
+                        Log.d(TAG, "KidozRewardedAdapter | onAdClosed");
                     }
 
                     @Override
                     public void onOpened()
                     {
                         mMediationRewardedVideoAdListener.onAdOpened(KidozAdMobMediationRewardedAdapter.this);
-                        Log.d(TAG, "Kidoz | onAdOpened");
+                        Log.d(TAG, "KidozRewardedAdapter | onAdOpened");
                     }
 
                     @Override
                     public void onReady()
                     {
                         mMediationRewardedVideoAdListener.onAdLoaded(KidozAdMobMediationRewardedAdapter.this);
-                        Log.d(TAG, "Kidoz | onAdReady");
+                        Log.d(TAG, "KidozRewardedAdapter | onAdReady");
                     }
 
                     @Override
                     public void onLoadFailed()
                     {
                         mMediationRewardedVideoAdListener.onAdFailedToLoad(KidozAdMobMediationRewardedAdapter.this, AdRequest.ERROR_CODE_INTERNAL_ERROR);
-                        Log.d(TAG, "Kidoz | onLoadFailed");
+                        Log.d(TAG, "KidozRewardedAdapter | onLoadFailed");
                     }
 
                     @Override
                     public void onNoOffers()
                     {
                         mMediationRewardedVideoAdListener.onAdFailedToLoad(KidozAdMobMediationRewardedAdapter.this, AdRequest.ERROR_CODE_NO_FILL);
-                        Log.d(TAG, "Kidoz | onNoOffers");
+                        Log.d(TAG, "KidozRewardedAdapter | onNoOffers");
                     }
                 },
                 new BaseInterstitial.IOnInterstitialRewardedEventListener()
@@ -116,7 +119,7 @@ public class KidozAdMobMediationRewardedAdapter implements MediationRewardedVide
 
                         //Note: Kidoz currently have no server to client reward exposure.
                         mMediationRewardedVideoAdListener.onRewarded(KidozAdMobMediationRewardedAdapter.this, new KidozAdMobRewardItem());
-                        Log.d(TAG, "Kidoz | onRewardReceived");
+                        Log.d(TAG, "KidozRewardedAdapter | onRewardReceived");
                     }
 
                     @Override
@@ -128,7 +131,75 @@ public class KidozAdMobMediationRewardedAdapter implements MediationRewardedVide
                         }
 
                         mMediationRewardedVideoAdListener.onVideoStarted(KidozAdMobMediationRewardedAdapter.this);
-                        Log.d(TAG, "Kidoz | onRewardedStarted");
+                        Log.d(TAG, "KidozRewardedAdapter | onRewardedStarted");
+                    }
+                });
+    }
+
+    private void setKidozAd()
+    {
+        mKidozManager.setupKidozRewadrded(mKidozManager.getRewarded(), new BaseInterstitial.IOnInterstitialEventListener()
+                {
+                    @Override
+                    public void onClosed()
+                    {
+                        mMediationRewardedVideoAdListener.onAdClosed(KidozAdMobMediationRewardedAdapter.this);
+                        Log.d(TAG, "KidozRewardedAdapter | onAdClosed");
+                    }
+
+                    @Override
+                    public void onOpened()
+                    {
+                        mMediationRewardedVideoAdListener.onAdOpened(KidozAdMobMediationRewardedAdapter.this);
+                        Log.d(TAG, "KidozRewardedAdapter | onAdOpened");
+                    }
+
+                    @Override
+                    public void onReady()
+                    {
+                        mMediationRewardedVideoAdListener.onAdLoaded(KidozAdMobMediationRewardedAdapter.this);
+                        Log.d(TAG, "KidozRewardedAdapter | onAdReady");
+                    }
+
+                    @Override
+                    public void onLoadFailed()
+                    {
+                        mMediationRewardedVideoAdListener.onAdFailedToLoad(KidozAdMobMediationRewardedAdapter.this, AdRequest.ERROR_CODE_INTERNAL_ERROR);
+                        Log.d(TAG, "KidozRewardedAdapter | onLoadFailed");
+                    }
+
+                    @Override
+                    public void onNoOffers()
+                    {
+                        mMediationRewardedVideoAdListener.onAdFailedToLoad(KidozAdMobMediationRewardedAdapter.this, AdRequest.ERROR_CODE_NO_FILL);
+                        Log.d(TAG, "KidozRewardedAdapter | onNoOffers");
+                    }
+                },
+                new BaseInterstitial.IOnInterstitialRewardedEventListener()
+                {
+                    @Override
+                    public void onRewardReceived()
+                    {
+                        BaseInterstitial.IOnInterstitialRewardedEventListener devListener = mKidozManager.getDeveloperRewardedListener();
+                        if (devListener != null){
+                            devListener.onRewardReceived();
+                        }
+
+                        //Note: Kidoz currently have no server to client reward exposure.
+                        mMediationRewardedVideoAdListener.onRewarded(KidozAdMobMediationRewardedAdapter.this, new KidozAdMobRewardItem());
+                        Log.d(TAG, "KidozRewardedAdapter | onRewardReceived");
+                    }
+
+                    @Override
+                    public void onRewardedStarted()
+                    {
+                        BaseInterstitial.IOnInterstitialRewardedEventListener devListener = mKidozManager.getDeveloperRewardedListener();
+                        if (devListener != null){
+                            devListener.onRewardedStarted();
+                        }
+
+                        mMediationRewardedVideoAdListener.onVideoStarted(KidozAdMobMediationRewardedAdapter.this);
+                        Log.d(TAG, "KidozRewardedAdapter | onRewardedStarted");
                     }
                 });
     }
@@ -142,7 +213,7 @@ public class KidozAdMobMediationRewardedAdapter implements MediationRewardedVide
             {
                 mInitializedState = false;
                 mMediationRewardedVideoAdListener.onInitializationSucceeded(KidozAdMobMediationRewardedAdapter.this);
-                Log.d(TAG, "Kidoz | onInitSuccess");
+                Log.d(TAG, "KidozRewardedAdapter | onInitSuccess");
             }
 
             @Override
@@ -150,7 +221,8 @@ public class KidozAdMobMediationRewardedAdapter implements MediationRewardedVide
             {
                 mInitializedState = false;
                 mMediationRewardedVideoAdListener.onInitializationFailed(KidozAdMobMediationRewardedAdapter.this, AdRequest.ERROR_CODE_INTERNAL_ERROR);
-                Log.d(TAG, "Kidoz | onInitError: " + error);
+                Log.d(TAG, "KidozRewardedAdapter | onInitError: " + error);
+
             }
         });
     }
@@ -159,7 +231,10 @@ public class KidozAdMobMediationRewardedAdapter implements MediationRewardedVide
     public void loadAd(MediationAdRequest mediationAdRequest, Bundle bundle, Bundle bundle1)
     {
         KidozInterstitial kidozInterstitial = mKidozManager.getRewarded();
-        kidozInterstitial.loadAd();
+        if(!kidozInterstitial.isLoaded())
+            kidozInterstitial.loadAd();
+        else
+            mMediationRewardedVideoAdListener.onAdLoaded(KidozAdMobMediationRewardedAdapter.this);
     }
 
     @Override
@@ -178,18 +253,19 @@ public class KidozAdMobMediationRewardedAdapter implements MediationRewardedVide
     @Override
     public void onDestroy()
     {
-
+        Log.d(TAG, "KidozRewardedAdapter | onDestroy");
     }
 
     @Override
     public void onPause()
     {
+        Log.d(TAG, "KidozRewardedAdapter | onPause");
 
     }
 
     @Override
-    public void onResume()
-    {
+    public void onResume() {
+        Log.d(TAG, "KidozRewardedAdapter | onResume");
 
     }
 

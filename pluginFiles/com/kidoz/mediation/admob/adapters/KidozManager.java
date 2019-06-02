@@ -24,7 +24,9 @@ public class KidozManager
     private KidozInterstitial mKidozInterstitial;
     private KidozInterstitial mKidozRewarded;
     private KidozBannerView mKidozBanner;
+    private static KidozManager instance = null;
     private static final String TAG = "KidozManager";
+    public static boolean adRequested = false;
 
 
     private static String mKidozPublisherId = ""; //default (test values)
@@ -46,6 +48,20 @@ public class KidozManager
         mDeveloperRewardedListener = rewardedListener;
     }
 
+
+    private KidozManager(){
+            //init constructor
+    }
+
+    synchronized public static KidozManager getInstance(){
+        if (instance == null)
+        {
+            instance = new KidozManager();
+        }
+        return instance;
+    }
+
+
     /****************************
      *     Adapter Internal     *
      ****************************/
@@ -56,6 +72,23 @@ public class KidozManager
         mKidozBanner.setKidozBannerListener(kidozBannerListener);
     }
 
+    protected KidozBannerView getKidozBanner(Activity activity){
+        return KidozSDK.getKidozBanner(activity);
+    }
+
+    protected void setupKidozBanner(KidozBannerView KidozBanner, BANNER_POSITION bannerPosition, KidozBannerListener kidozBannerListener){
+        KidozBanner.setBannerPosition(bannerPosition);
+        KidozBanner.setKidozBannerListener(kidozBannerListener);
+    }
+
+    protected void createKidozInterstitial(Activity activity){
+        mKidozInterstitial = new KidozInterstitial(activity, KidozInterstitial.AD_TYPE.INTERSTITIAL);
+    }
+
+    protected void setupKidozInterstitial(KidozInterstitial kidozInterstitial, BaseInterstitial.IOnInterstitialEventListener interstitialListener){
+        kidozInterstitial.setOnInterstitialEventListener(interstitialListener);
+    }
+
     protected void setupKidozInterstitial(Activity activity, BaseInterstitial.IOnInterstitialEventListener interstitialListener){
         mKidozInterstitial = new KidozInterstitial(activity, KidozInterstitial.AD_TYPE.INTERSTITIAL);
         mKidozInterstitial.setOnInterstitialEventListener(interstitialListener);
@@ -63,6 +96,16 @@ public class KidozManager
 
     protected void setupKidozRewadrded(Activity activity, BaseInterstitial.IOnInterstitialEventListener interstitialListener, BaseInterstitial.IOnInterstitialRewardedEventListener rewardedListener){
         mKidozRewarded = new KidozInterstitial(activity, KidozInterstitial.AD_TYPE.REWARDED_VIDEO);
+        mKidozRewarded.setOnInterstitialEventListener(interstitialListener);
+        mKidozRewarded.setOnInterstitialRewardedEventListener(rewardedListener);
+    }
+
+    protected void createKidozRewadrded(Activity activity){
+        mKidozRewarded = new KidozInterstitial(activity, KidozInterstitial.AD_TYPE.REWARDED_VIDEO);
+    }
+
+
+    protected void setupKidozRewadrded(KidozInterstitial mKidozRewarded, BaseInterstitial.IOnInterstitialEventListener interstitialListener, BaseInterstitial.IOnInterstitialRewardedEventListener rewardedListener){
         mKidozRewarded.setOnInterstitialEventListener(interstitialListener);
         mKidozRewarded.setOnInterstitialRewardedEventListener(rewardedListener);
     }

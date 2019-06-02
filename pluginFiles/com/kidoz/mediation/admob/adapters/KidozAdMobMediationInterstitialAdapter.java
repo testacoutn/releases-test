@@ -25,7 +25,7 @@ public class KidozAdMobMediationInterstitialAdapter implements CustomEventInters
     private CustomEventInterstitialListener mAdMobCustomInterstitialListener;
 
     public KidozAdMobMediationInterstitialAdapter() {
-        mKidozManager = new KidozManager();
+        mKidozManager = KidozManager.getInstance();
     }
 
     @Override
@@ -37,11 +37,11 @@ public class KidozAdMobMediationInterstitialAdapter implements CustomEventInters
         //Kidoz requires Activity context to run.
         if (!(context instanceof Activity)){
             mAdMobCustomInterstitialListener.onAdFailedToLoad(AdRequest.ERROR_CODE_INVALID_REQUEST);
-            Log.d(TAG, "Kidoz | requestInterstitialAd with non Activity context");
+            Log.d(TAG, "kidozInterstitialAdapter | requestInterstitialAd with non Activity context");
             return;
         }
 
-        setKidozAd((Activity) context); //and then continue request
+        //setKidozAd((Activity) context); //and then continue request
 
         //Kidoz must be initialized before an ad can be requested
         if (!mKidozManager.getIsKidozInitialized()) {
@@ -57,26 +57,28 @@ public class KidozAdMobMediationInterstitialAdapter implements CustomEventInters
 
 
         } else {
-            continueRequestInterstitialAd();
+            continueRequestInterstitialAd((Activity)context);
         }
 
     }
 
-    private void initKidoz(Activity activity)
+    private void initKidoz(final Activity activity)
     {
         mKidozManager.initKidozSDK(activity, new SDKEventListener()
         {
             @Override
             public void onInitSuccess()
             {
-                continueRequestInterstitialAd();
+                Log.d(TAG, "kidozInterstitialAdapter | onInitSuccess");
+
+                continueRequestInterstitialAd(activity);
             }
 
             @Override
             public void onInitError(String error)
             {
                 mAdMobCustomInterstitialListener.onAdFailedToLoad(AdRequest.ERROR_CODE_INTERNAL_ERROR);
-                Log.d(TAG, "Kidoz | onInitError: " + error);
+                Log.d(TAG, "kidozInterstitialAdapter | onInitError: " + error);
             }
         });
     }
@@ -89,48 +91,102 @@ public class KidozAdMobMediationInterstitialAdapter implements CustomEventInters
             public void onClosed()
             {
                 mAdMobCustomInterstitialListener.onAdClosed();
-                Log.d(TAG, "Kidoz | onAdClosed");
+                Log.d(TAG, "kidozInterstitialAdapter | onAdClosed");
             }
 
             @Override
             public void onOpened()
             {
                 mAdMobCustomInterstitialListener.onAdOpened();
-                Log.d(TAG, "Kidoz | onAdOpened");
+                Log.d(TAG, "kidozInterstitialAdapter | onAdOpened");
             }
 
             @Override
             public void onReady()
             {
                 mAdMobCustomInterstitialListener.onAdLoaded();
-                Log.d(TAG, "Kidoz | onAdReady");
+                Log.d(TAG, "kidozInterstitialAdapter | onAdLoaded");
             }
 
             @Override
             public void onLoadFailed()
             {
                 mAdMobCustomInterstitialListener.onAdFailedToLoad(AdRequest.ERROR_CODE_INTERNAL_ERROR);
-                Log.d(TAG, "Kidoz | onLoadFailed");
+                Log.d(TAG, "kidozInterstitialAdapter | onLoadFailed");
             }
 
             @Override
             public void onNoOffers()
             {
                 mAdMobCustomInterstitialListener.onAdFailedToLoad(AdRequest.ERROR_CODE_NO_FILL);
-                Log.d(TAG, "Kidoz | onNoOffers");
+                Log.d(TAG, "kidozInterstitialAdapter | onNoOffers");
             }
         });
     }
 
-    private void continueRequestInterstitialAd()
+    private void setKidozAd()
     {
+        mKidozManager.setupKidozInterstitial(mKidozManager.getInterstitial(), new BaseInterstitial.IOnInterstitialEventListener(){
+            @Override
+            public void onClosed()
+            {
+                mAdMobCustomInterstitialListener.onAdClosed();
+                Log.d(TAG, "kidozInterstitialAdapter | onAdClosed");
+            }
+
+            @Override
+            public void onOpened()
+            {
+                mAdMobCustomInterstitialListener.onAdOpened();
+                Log.d(TAG, "kidozInterstitialAdapter | onAdOpened");
+            }
+
+            @Override
+            public void onReady()
+            {
+                mAdMobCustomInterstitialListener.onAdLoaded();
+                Log.d(TAG, "kidozInterstitialAdapter | onAdLoaded");
+            }
+
+            @Override
+            public void onLoadFailed()
+            {
+                mAdMobCustomInterstitialListener.onAdFailedToLoad(AdRequest.ERROR_CODE_INTERNAL_ERROR);
+                Log.d(TAG, "kidozInterstitialAdapter | onLoadFailed");
+            }
+
+            @Override
+            public void onNoOffers()
+            {
+                mAdMobCustomInterstitialListener.onAdFailedToLoad(AdRequest.ERROR_CODE_NO_FILL);
+                Log.d(TAG, "kidozInterstitialAdapter | onNoOffers");
+            }
+        });
+    }
+
+    private void continueRequestInterstitialAd(Activity activity)
+    {
+        if(mKidozManager.getInterstitial() == null)
+            mKidozManager.createKidozInterstitial(activity);
+
+        setKidozAd();
+
+        Log.d(TAG, "kidozInterstitialAdapter | continueRequestInterstitialAd");
         KidozInterstitial kidozInterstitial = mKidozManager.getInterstitial();
-        kidozInterstitial.loadAd();
+
+        if(!kidozInterstitial.isLoaded())
+            kidozInterstitial.loadAd();
+        else
+            mAdMobCustomInterstitialListener.onAdLoaded();
+
+
     }
 
     @Override
     public void showInterstitial()
     {
+        Log.d(TAG, "kidozInterstitialAdapter | showInterstitial");
+
         KidozInterstitial kidozInterstitial = mKidozManager.getInterstitial();
         kidozInterstitial.show();
     }
@@ -138,15 +194,21 @@ public class KidozAdMobMediationInterstitialAdapter implements CustomEventInters
     @Override
     public void onDestroy()
     {
+        Log.d(TAG, "kidozInterstitialAdapter | onDestroy");
+
     }
 
     @Override
     public void onPause()
     {
+        Log.d(TAG, "kidozInterstitialAdapter | onPause");
+
     }
 
     @Override
     public void onResume()
     {
+        Log.d(TAG, "kidozInterstitialAdapter | onResume");
+
     }
 }

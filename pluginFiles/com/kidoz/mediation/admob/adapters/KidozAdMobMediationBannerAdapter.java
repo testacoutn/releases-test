@@ -11,13 +11,10 @@ import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.mediation.MediationAdRequest;
 import com.google.android.gms.ads.mediation.customevent.CustomEventBanner;
 import com.google.android.gms.ads.mediation.customevent.CustomEventBannerListener;
-
-
 import com.kidoz.sdk.api.interfaces.SDKEventListener;
 import com.kidoz.sdk.api.ui_views.kidoz_banner.KidozBannerListener;
 import com.kidoz.sdk.api.ui_views.new_kidoz_banner.BANNER_POSITION;
 import com.kidoz.sdk.api.ui_views.new_kidoz_banner.KidozBannerView;
-
 
 
 /**
@@ -31,16 +28,18 @@ public class KidozAdMobMediationBannerAdapter implements CustomEventBanner
 
     private CustomEventBannerListener mCustomEventBannerListener;
     private KidozManager mKidozManager;
+    private KidozBannerView mKidozBanner;
 
     public KidozAdMobMediationBannerAdapter()
     {
-        mKidozManager = new KidozManager();
+        mKidozManager = KidozManager.getInstance();
     }
 
     @Override
     public void requestBannerAd(Context context, CustomEventBannerListener customEventBannerListener, String serverParameter, AdSize adSize, MediationAdRequest mediationAdRequest, Bundle bundle)
     {
         mCustomEventBannerListener = customEventBannerListener;
+
 
         //Kidoz requires Activity context to run.
         if (!(context instanceof Activity)){
@@ -65,7 +64,6 @@ public class KidozAdMobMediationBannerAdapter implements CustomEventBanner
                 initKidoz((Activity) context);
             }
 
-
         } else {
             Log.d(TAG, "KidozBannerAdapter | kidoz already init");
             continueRequestBannerAd((Activity) context);
@@ -89,9 +87,11 @@ public class KidozAdMobMediationBannerAdapter implements CustomEventBanner
                 Log.d(TAG, "Kidoz | onInitError: " + error);
             }
         });
+
+
     }
 
-    private void continueRequestBannerAd(Activity activity)
+    private void continueRequestBannerAd_old(Activity activity)
     {
         Log.d(TAG, "KidozBannerAdapter | kidoz continueRequestBannerAd");
         if (mKidozManager.getBanner() == null)
@@ -100,9 +100,58 @@ public class KidozAdMobMediationBannerAdapter implements CustomEventBanner
             setupKidozBanner(activity);
         }
 
-        Log.d(TAG, "KidozBannerAdapter | continueRequestBannerAd | calling load()");
-        mKidozManager.getBanner().setLayoutWithoutShowing();
-        mKidozManager.getBanner().load();
+            Log.d(TAG, "KidozBannerAdapter | continueRequestBannerAd | calling load()");
+            mKidozManager.getBanner().setLayoutWithoutShowing();
+            mKidozManager.getBanner().load();
+
+    }
+
+    private void continueRequestBannerAd(Activity activity)
+    {
+         mKidozBanner = mKidozManager.getKidozBanner(activity);
+         mKidozManager.setupKidozBanner(mKidozBanner, DEFAULT_BANNER_POSITION, new KidozBannerListener()
+         {
+            @Override
+            public void onBannerReady()
+            {
+                //ask banner not to insert itself to view hierarchy, admob will do that in onAdLoaded(...)
+                final KidozBannerView kbv = mKidozBanner;
+                kbv.setBackgroundColor(Color.TRANSPARENT);
+                mCustomEventBannerListener.onAdLoaded(kbv);
+                kbv.show();
+                Log.d(TAG, "kidozBannerAdapter | onBannerReady");
+            }
+
+            @Override
+            public void onBannerViewAdded()
+            {
+                Log.d(TAG, "kidozBannerAdapter | onBannerViewAdded");
+            }
+
+            @Override
+            public void onBannerError(String errorMsg)
+            {
+                Log.e(TAG, "kidozBannerAdapter | onBannerError: " + errorMsg);
+                mCustomEventBannerListener.onAdFailedToLoad(AdRequest.ERROR_CODE_NETWORK_ERROR);
+            }
+
+            @Override
+            public void onBannerClose()
+            {
+                Log.d(TAG, "kidozBannerAdapter | onBannerClose");
+            }
+
+            @Override
+            public void onBannerNoOffers()
+            {
+                mCustomEventBannerListener.onAdFailedToLoad(AdRequest.ERROR_CODE_NETWORK_ERROR);
+                Log.d(TAG, "kidozBannerAdapter | onBannerNoOffers");
+            }
+        });
+
+        mKidozBanner.setLayoutWithoutShowing();
+        mKidozBanner.load();
+
     }
 
     private void setupKidozBanner(final Activity activity)
@@ -116,7 +165,7 @@ public class KidozAdMobMediationBannerAdapter implements CustomEventBanner
                 //ask banner not to insert itself to view hierarchy, admob will do that in onAdLoaded(...)
                 final KidozBannerView kbv = mKidozManager.getBanner();
                 kbv.setBackgroundColor(Color.TRANSPARENT);
-
+                mCustomEventBannerListener.onAdLoaded(kbv);
                 kbv.show();
                 Log.d(TAG, "kidozBannerAdapter | onBannerReady");
             }
@@ -124,30 +173,29 @@ public class KidozAdMobMediationBannerAdapter implements CustomEventBanner
             @Override
             public void onBannerViewAdded()
             {
-                mCustomEventBannerListener.onAdLoaded(mKidozManager.getBanner());
-                mCustomEventBannerListener.onAdOpened();
+                //mCustomEventBannerListener.onAdOpened();
                 Log.d(TAG, "kidozBannerAdapter | onBannerViewAdded");
             }
 
             @Override
             public void onBannerError(String errorMsg)
             {
-                Log.e(TAG, "onBannerError: " + errorMsg);
+                Log.e(TAG, "kidozBannerAdapter | onBannerError: " + errorMsg);
                 mCustomEventBannerListener.onAdFailedToLoad(AdRequest.ERROR_CODE_NETWORK_ERROR);
             }
 
             @Override
             public void onBannerClose()
             {
-                mCustomEventBannerListener.onAdClosed();
+                //mCustomEventBannerListener.onAdClosed();
                 Log.d(TAG, "kidozBannerAdapter | onBannerClose");
             }
 
             @Override
             public void onBannerNoOffers()
             {
+                mCustomEventBannerListener.onAdFailedToLoad(AdRequest.ERROR_CODE_NETWORK_ERROR);
                 Log.d(TAG, "kidozBannerAdapter | onBannerNoOffers");
-
             }
         });
         Log.d(TAG, "kidozBannerAdapter | kidozBannerView == null, calling view creation. END");
@@ -156,8 +204,8 @@ public class KidozAdMobMediationBannerAdapter implements CustomEventBanner
     @Override
     public void onDestroy()
     {
-        mKidozManager.getBanner().hide();
         Log.d(TAG, "kidozBannerAdapter | onDestroy");
+        mKidozBanner.destroy();
     }
 
     @Override
