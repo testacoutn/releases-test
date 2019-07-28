@@ -30,8 +30,7 @@ dependencies {
     provided group: 'org.greenrobot', name: 'eventbus', version: '3.0.0'
     provided 'com.android.support:support-v4:25.0.+'
     //compile project(path: ':KidozSDK', configuration: 'mainDebug')
-
-    compile 'com.kidoz.sdk:KidozSDK:0.8.8.2@aar'
+    compile 'com.kidoz.sdk:KidozSDK:0.8.8.3@aar'
 
 
 }

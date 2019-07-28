@@ -19,7 +19,7 @@ Kidoz AdMob mediation adapter Version 1.5
 ```
     compile group: 'org.greenrobot', name: 'eventbus', version: '3.0.0'
     compile 'com.android.support:support-v4:23.0.+'
-    compile 'com.kidoz.sdk:KidozSDK:0.8.8.2@aar'
+    compile 'com.kidoz.sdk:KidozSDK:0.8.8.3@aar'
 ```
 3.2. Please make sure you have a set up Kidoz publisher account.
 3.3. The plugin itself consists of the java files inside the 'pluginFiles' directory, copy this entire package to your own project.
