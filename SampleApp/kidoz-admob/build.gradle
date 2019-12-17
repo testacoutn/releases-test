@@ -2,14 +2,14 @@ apply plugin: 'com.android.library'
 
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.3"
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
 
     defaultConfig {
         minSdkVersion 17
-        targetSdkVersion 25
-        versionCode 15
-        versionName "1.5"
+        targetSdkVersion 27
+        versionCode 16
+        versionName "1.6"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -23,19 +23,21 @@ android {
     lintOptions {
         abortOnError false
     }
+
 }
 
 dependencies {
-    provided 'com.google.android.gms:play-services-ads:10.2.4'
-    provided group: 'org.greenrobot', name: 'eventbus', version: '3.0.0'
-    provided 'com.android.support:support-v4:25.0.+'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'com.google.android.gms:play-services-ads:18.2.0'
+    compile group: 'org.greenrobot', name: 'eventbus', version: '3.0.0'
     //compile project(path: ':KidozSDK', configuration: 'mainDebug')
     compile 'com.kidoz.sdk:KidozSDK:0.8.8.4@aar'
-
-
 }
 
 
+
+/*
 task deleteJarDebug(type: Delete) {
     delete 'outputs/jar/kidoz-admob-debug.jar'
 }
@@ -75,4 +77,5 @@ tasks.whenTaskAdded { task ->
         task.finalizedBy createJarRelease
     }
 }
+*/
 

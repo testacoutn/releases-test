@@ -1,11 +1,14 @@
 
+
 # KIDOZ_ADMOB_ADAPTER
-Kidoz AdMob mediation adapter Version 1.5  
+Kidoz AdMob mediation adapter Version 1.6 
+Built and tested with Google Mobile Ads SDK 18.2.0
+
 </br>
 
 **Prerequisits:**
 * To use the Kidoz SDK adapter for AdMob you should make sure you have:
-1. AdMob Mediation integrated in your project.
+1. Google Mobile Ads SDK 17.2.0 or higher integrated in your project as explained [HERE](https://developers.google.com/admob/android/quick-start):
 2. A fully functional AdMob ad placement.
 3. Kidoz SDK built with your project.
 
@@ -18,19 +21,18 @@ Kidoz AdMob mediation adapter Version 1.5
 3.1. You can get Kidoz SDK as a Gradle dependency (together with it's needed dependencies) using the following lines:
 ```
     compile group: 'org.greenrobot', name: 'eventbus', version: '3.0.0'
-    compile 'com.android.support:support-v4:23.0.+'
     compile 'com.kidoz.sdk:KidozSDK:0.8.8.4@aar'
 ```
 3.2. Please make sure you have a set up Kidoz publisher account.
-3.3. The plugin itself consists of the java files inside the 'pluginFiles' directory, copy this entire package to your own project.
+3.3. The plugin itself consists of the java files inside the 'pluginFiles' directory, copy this entire package to your own project or you can copy the kidoz-admob.jar file instead.
 
-3.4. Set your Kidoz PublisherId & PublisherToken in the adapter using the following:
+3.4. Set your Kidoz PublisherId & PublisherToken in the adapter using the following(Only if using the pluginFiles):
 ```
 KidozManager.setKidozPublisherId(<publisherId>)
 KidozManager.setKidozPublisherToken(<publisherToken>)
-
-Or set a Custom Events Parameter:
-
+```
+3.5 Set your Kidoz PublisherId & PublisherToken by setting  a Custom Events settings in the `Parameter` field(If using the kidoz-admob.jar):
+```
  For Banner:
  {"AppID":"publisherId", "Token":"publisherToken"}
 
@@ -40,21 +42,18 @@ Or set a Custom Events Parameter:
  For Rewarded Video:
  {"AppID":"publisherId", "Token":"publisherToken"}
 ```
-3.5. If you want to connect directly with the Kidoz reward events use the following:
+3.6. If you want to connect directly with the Kidoz reward events use the following:
 ```
 KidozManager.setRewardedEvents(<new BaseInterstitial.IOnInterstitialRewardedEventListener>);
+(Only if using the pluginFiles)
 ```
 
-```css
-*** Please note - The support of Admob mediation for Apps that opt-in to Designed For Families program, should be checked with Google Admob mediation team. 
-However, KIDOZ ads can be integrated directly to your apps.
-```
 
 </br>
 
 **Integration Steps:**
 
-* Include the 'com.kidoz.mediation.admob.adapters' package in your project.
+* Include the 'com.kidoz.mediation.admob.adapters' package in your project or the kidoz-admob.jar.
 
 * Define Kidoz Interstitial and/or Rewarded Video Custom events as explained [HERE](https://support.google.com/admob/answer/3083407):
  
@@ -66,11 +65,17 @@ However, KIDOZ ads can be integrated directly to your apps.
 * Set the following full path in the `Class Name` field: </br>
 (Example: com.kidoz.mediation.admob.adapters.KidozAdMobMediationRewardedAdapter)
 
+    ```
+    Note: for Google Mobile Ads SDK lower than 17.2.0 
+      Set the full path in the Class Name field:  
+      com.kidoz.mediation.admob.adapters.KidozAdMobMediationRewardedLegacyAdapterr
+    ```
+
 ## KIDOZ Banner Adapter
 * Set the following full path in the `Class Name` field: </br>
 (Example: com.kidoz.mediation.admob.adapters.KidozAdMobMediationBannerAdapter)
 </br>
-* Please Note: you can change the Kidoz adapter classpath in your project but maker sure the class names you put in the AdMob dashboard correspond to your final adapter location.
+* Please Note: you can change the Kidoz adapter classpath in your project but make sure the class names you put in the AdMob dashboard correspond to your final adapter location.
 
  
 

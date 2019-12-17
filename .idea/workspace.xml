@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="07b96acf-ec29-4ae1-ad52-cc7538160478" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/SampleApp/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SampleApp/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SampleApp/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SampleApp/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SampleApp/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SampleApp/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SampleApp/SampleApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SampleApp/SampleApp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SampleApp/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SampleApp/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SampleApp/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/SampleApp/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SampleApp/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SampleApp/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SampleApp/app/src/main/java/com/kidoz/sdk/sample/app/SampleAds/SampleAdsPresenter_Admob_Impl.java" beforeDir="false" afterPath="$PROJECT_DIR$/SampleApp/app/src/main/java/com/kidoz/sdk/sample/app/SampleAds/SampleAdsPresenter_Admob_Impl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SampleApp/app/src/main/java/com/kidoz/sdk/sample/app/SampleAds/SampleAdsViewActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/SampleApp/app/src/main/java/com/kidoz/sdk/sample/app/SampleAds/SampleAdsViewActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SampleApp/app/src/main/java/com/kidoz/sdk/sample/app/SampleAds/model/SampleAdsAdMobModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/SampleApp/app/src/main/java/com/kidoz/sdk/sample/app/SampleAds/model/SampleAdsAdMobModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SampleApp/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/SampleApp/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SampleApp/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/SampleApp/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SampleApp/kidoz-admob/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/SampleApp/kidoz-admob/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SampleApp/kidoz-admob/kidoz-admob.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SampleApp/kidoz-admob/kidoz-admob.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SampleApp/kidoz-admob/src/main/java/com/kidoz/mediation/admob/adapters/KidozAdMobMediationBannerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/SampleApp/kidoz-admob/src/main/java/com/kidoz/mediation/admob/adapters/KidozAdMobMediationBannerAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SampleApp/kidoz-admob/src/main/java/com/kidoz/mediation/admob/adapters/KidozAdMobMediationRewardedAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/SampleApp/kidoz-admob/src/main/java/com/kidoz/mediation/admob/adapters/KidozAdMobMediationRewardedAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SampleApp/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/SampleApp/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kidoz-admob-1.5.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pluginFiles/com/kidoz/mediation/admob/adapters/KidozAdMobMediationRewardedAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/pluginFiles/com/kidoz/mediation/admob/adapters/KidozAdMobMediationRewardedAdapter.java" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1947" />
+    <option name="y" value="23" />
+    <option name="width" value="1920" />
+    <option name="height" value="1057" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="AdmobAdapter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AdmobAdapter" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="android.sdk.path" value="$USER_HOME$/android-sdks" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="&lt;template&gt;" type="Applet" default="true" selected="false">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
+      <Host>localhost</Host>
+      <Port>5050</Port>
+    </configuration>
+    <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="07b96acf-ec29-4ae1-ad52-cc7538160478" name="Default Changelist" comment="" />
+      <created>1576400848466</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1576400848466</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1920" y="23" width="1920" height="1057" extended-state="6" />
+    <layout>
+      <window_info id="Captures" order="0" weight="0.25" />
+      <window_info id="Designer" order="1" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.32964718" />
+      <window_info id="Structure" order="3" side_tool="true" />
+      <window_info id="Image Layers" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Resources Explorer" order="6" />
+      <window_info id="Favorites" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="0" />
+      <window_info anchor="bottom" id="TODO" order="1" />
+      <window_info anchor="bottom" id="Terminal" order="2" />
+      <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
+      <window_info anchor="right" id="Capture Analysis" order="0" />
+      <window_info anchor="right" id="Theme Preview" order="1" />
+      <window_info anchor="right" id="Palette&#9;" order="2" />
+    </layout>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

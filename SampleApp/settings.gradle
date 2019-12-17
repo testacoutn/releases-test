@@ -1,1 +1,3 @@
-include ':app', ':kidoz-admob'
+include ':app', ':kidoz-admob',':KidozSDK'
+
+//project(':KidozSDK').projectDir = new File('/Users/orikam/dev/plasticscm/SdkTestApp/KidozSDK')

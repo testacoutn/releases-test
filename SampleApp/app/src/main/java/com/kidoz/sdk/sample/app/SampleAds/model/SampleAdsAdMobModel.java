@@ -7,8 +7,8 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.reward.RewardedVideoAd;
-import com.google.android.gms.ads.reward.RewardedVideoAdListener;
+import com.google.android.gms.ads.rewarded.RewardedAd;
+import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 import com.kidoz.sdk.sample.app.R;
 
 /**
@@ -25,7 +25,9 @@ public class SampleAdsAdMobModel
     private static final String ADMOB_REWARDED_VIDEO_ID = "ca-app-pub-5967470543517808/9701675577";
 
     private InterstitialAd mAdMobInterstitialAd;
-    private RewardedVideoAd mAdMobRewarded;
+    //private RewardedVideoAd mAdMobRewarded;
+    private RewardedAd mAdMobRewarded;
+
     private AdView mAdMobBanner;
 
 
@@ -56,22 +58,21 @@ public class SampleAdsAdMobModel
     /******************
      * Rewarded Video *
      ******************/
-    public void setupAdMobRewarded(RewardedVideoAdListener videoListener, Activity activity)
+    public void setupAdMobRewarded(Activity activity)
     {
-        mAdMobRewarded = MobileAds.getRewardedVideoAdInstance(activity);
-        mAdMobRewarded.setRewardedVideoAdListener(videoListener);
+        mAdMobRewarded = new RewardedAd(activity, ADMOB_REWARDED_VIDEO_ID);
     }
 
     private AdRequest CreateAdRequest(){
         return new AdRequest.Builder().build();
     }
 
-    public void loadRewardedVideo(boolean admobIsTesting){
+    public void loadRewardedVideo(RewardedAdLoadCallback adLoadCallback){
 
-        mAdMobRewarded.loadAd(ADMOB_REWARDED_VIDEO_ID, CreateAdRequest());
+        mAdMobRewarded.loadAd(CreateAdRequest(),adLoadCallback);
     }
 
-    public RewardedVideoAd getAdMobRewarded()
+    public RewardedAd getAdMobRewarded()
     {
         return mAdMobRewarded;
     }

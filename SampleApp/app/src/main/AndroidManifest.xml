@@ -19,13 +19,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name="com.kidoz.sdk.api.ui_views.interstitial.KidozAdActivity"
                   android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             />
         <activity android:name="com.kidoz.sdk.api.ui_views.video_unit.VideoUnitActivity"
                   android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
                   android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
+
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-5967470543517808~3214489975"/>
+
+
     </application>
 
 </manifest>

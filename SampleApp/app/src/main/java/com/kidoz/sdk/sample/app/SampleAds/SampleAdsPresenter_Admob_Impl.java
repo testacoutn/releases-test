@@ -2,10 +2,13 @@ package com.kidoz.sdk.sample.app.SampleAds;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.reward.RewardItem;
-import com.google.android.gms.ads.reward.RewardedVideoAd;
-import com.google.android.gms.ads.reward.RewardedVideoAdListener;
+import com.google.android.gms.ads.rewarded.RewardItem;
+import com.google.android.gms.ads.rewarded.RewardedAd;
+import com.google.android.gms.ads.rewarded.RewardedAdCallback;
+import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 import com.kidoz.sdk.sample.app.SampleAds.model.SampleAdsAdMobModel;
+
+import androidx.annotation.NonNull;
 
 /**
  * Created by orikam on 07/06/2017.
@@ -27,7 +30,6 @@ public class SampleAdsPresenter_Admob_Impl implements SampleAdsPresenter
         mAdMobModel = new SampleAdsAdMobModel();
 
         setupAdMobInterstitial();
-        setupAdMobRewarded();
         setupAdMobBanner();
     }
 
@@ -102,69 +104,51 @@ public class SampleAdsPresenter_Admob_Impl implements SampleAdsPresenter
         }
     }
 
-
-    //Rewarded Video
-    private void setupAdMobRewarded()
-    {
-        mAdMobModel.setupAdMobRewarded(new RewardedVideoAdListener()
-        {
-            @Override
-            public void onRewardedVideoAdLoaded()
-            {
-                mMainView.showFeedBackText("AdMob | onRewardedVideoAdLoaded()");
-            }
-
-            @Override
-            public void onRewardedVideoAdOpened()
-            {
-                mMainView.showFeedBackText("AdMob | onRewardedVideoAdOpened()");
-            }
-
-            @Override
-            public void onRewardedVideoStarted()
-            {
-                mMainView.showFeedBackText("AdMob | onRewardedVideoStarted()");
-            }
-
-            @Override
-            public void onRewardedVideoAdClosed()
-            {
-                mMainView.showFeedBackText("AdMob | onRewardedVideoAdClosed()");
-            }
-
-            @Override
-            public void onRewarded(RewardItem rewardItem)
-            {
-                mMainView.showFeedBackText("AdMob | onRewarded | currency: " + rewardItem.getType() + "  amount: " + rewardItem.getAmount());
-            }
-
-            @Override
-            public void onRewardedVideoAdLeftApplication()
-            {
-                mMainView.showFeedBackText("AdMob | onRewardedVideoAdLeftApplication()");
-            }
-
-            @Override
-            public void onRewardedVideoAdFailedToLoad(int i)
-            {
-                mMainView.showFeedBackText("AdMob | onRewardedVideoAdFailedToLoad(" + i + ").");
-            }
-        }, mMainView.getActivity());
-    }
-
     @Override
     public void onClick_LoadRewarded()
     {
+        mAdMobModel.setupAdMobRewarded(mMainView.getActivity());
         mMainView.showFeedBackText("AdMob | trying to load rewarded ad...");
-        mAdMobModel.loadRewardedVideo(ADMOB_IS_TESTING);
+        mAdMobModel.loadRewardedVideo(new RewardedAdLoadCallback(){
+            @Override
+            public void onRewardedAdLoaded() {
+                mMainView.showFeedBackText("AdMob | onRewardedAdLoaded()");
+            }
+
+            @Override
+            public void onRewardedAdFailedToLoad(int errorCode) {
+                mMainView.showFeedBackText("AdMob | onRewardedAdFailedToLoad(" + errorCode + ").");
+            }
+
+        });
     }
 
     @Override
     public void onClick_ShowRewarded()
     {
-        RewardedVideoAd adMobRewarded = mAdMobModel.getAdMobRewarded();
+        RewardedAd adMobRewarded = mAdMobModel.getAdMobRewarded();
         if (adMobRewarded.isLoaded()) {
-            adMobRewarded.show();
+            adMobRewarded.show(mMainView.getActivity(),new RewardedAdCallback(){
+                @Override
+                public void onRewardedAdOpened() {
+                    mMainView.showFeedBackText("AdMob | onRewardedAdOpened()");
+                }
+
+                @Override
+                public void onRewardedAdClosed() {
+                    mMainView.showFeedBackText("AdMob | onRewardedAdClosed()");
+                }
+
+                @Override
+                public void onUserEarnedReward(@NonNull RewardItem reward) {
+                    mMainView.showFeedBackText("AdMob | onRewarded | currency: " + reward.getType() + "  amount: " + reward.getAmount());
+                }
+
+                @Override
+                public void onRewardedAdFailedToShow(int errorCode) {
+                    mMainView.showFeedBackText("AdMob | onRewardedAdFailedToShow()");
+                }
+            });
         } else {
             mMainView.showFeedBackText(ADMOB_REWADED_NOT_LOADED);
         }

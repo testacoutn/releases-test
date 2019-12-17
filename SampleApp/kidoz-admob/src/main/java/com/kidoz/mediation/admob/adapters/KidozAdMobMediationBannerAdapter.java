@@ -125,7 +125,6 @@ public class KidozAdMobMediationBannerAdapter implements CustomEventBanner
             @Override
             public void onBannerViewAdded()
             {
-                //mCustomEventBannerListener.onAdOpened();
                 Log.d(TAG, "kidozBannerAdapter | onBannerViewAdded");
             }
 
@@ -139,7 +138,6 @@ public class KidozAdMobMediationBannerAdapter implements CustomEventBanner
             @Override
             public void onBannerClose()
             {
-                //mCustomEventBannerListener.onAdClosed();
                 Log.d(TAG, "kidozBannerAdapter | onBannerClose");
             }
 

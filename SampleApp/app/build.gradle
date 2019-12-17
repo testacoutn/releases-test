@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion '25.0.0'
+    compileSdkVersion 28
+    buildToolsVersion '27.0.3'
 
     defaultConfig {
-        applicationId "kidoz.sdk.sample.app.SampleAds"
+        applicationId "kidoz.android.native.admob"
         minSdkVersion 17
-        targetSdkVersion 24
+        targetSdkVersion 27
         versionCode 101
         versionName "1.0.1"
     }
@@ -30,14 +30,9 @@ android {
 
 dependencies {
     //AdMob
-    compile 'com.google.android.gms:play-services-ads:10.2.4'
+    compile 'com.google.android.gms:play-services-ads:18.2.0'
 
-    //Kidoz SDK
     compile group: 'org.greenrobot', name: 'eventbus', version: '3.0.0'
-    compile 'com.android.support:support-v4:23.0.+'
-
-//    compile fileTree(dir: 'libs', include: '*.jar')
-
     //Kidoz AdMob Plugin
     compile project (':kidoz-admob')
 
