@@ -10,6 +10,7 @@ android {
         targetSdkVersion 27
         versionCode 101
         versionName "1.0.1"
+
     }
 
     buildTypes {
@@ -21,8 +22,11 @@ android {
 
         debug {
             debuggable true
+            shrinkResources false
+
         }
     }
+
     lintOptions {
         abortOnError false
     }

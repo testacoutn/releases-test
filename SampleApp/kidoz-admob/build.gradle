@@ -4,7 +4,7 @@ apply plugin: 'com.android.library'
 android {
     compileSdkVersion 28
     buildToolsVersion "28.0.3"
-
+    //flavorDimensions "default"
     defaultConfig {
         minSdkVersion 17
         targetSdkVersion 27
@@ -19,63 +19,50 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+
+        debug {
+            minifyEnabled false
+            debuggable true
+            //proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
     }
     lintOptions {
         abortOnError false
     }
 
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'com.google.android.gms:play-services-ads:18.2.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.google.android.gms:play-services-ads:18.3.0'
     compile group: 'org.greenrobot', name: 'eventbus', version: '3.0.0'
     //compile project(path: ':KidozSDK', configuration: 'mainDebug')
-    compile 'com.kidoz.sdk:KidozSDK:0.8.8.4@aar'
+    compile 'com.kidoz.sdk:KidozSDK:0.8.8.5@aar'
+
 }
 
 
+task unzipDebug(type: Copy) {
+    from zipTree("build/outputs/aar/kidoz-admob-debug.aar").matching {
+        include 'classes.jar'
+    }
 
-/*
-task deleteJarDebug(type: Delete) {
-    delete 'outputs/jar/kidoz-admob-debug.jar'
-}
-
-task createJarDebug(type: Copy) {
-    from('build/intermediates/bundles/debug/')
-    into('build/outputs/jar')
-    include('classes.jar')
     rename('classes.jar', 'kidoz-admob-debug.jar')
+    into ("build/outputs/jar")
 }
 
 
-createJarDebug.dependsOn(deleteJarDebug)
-
-//execute debug Jar creation after last build task
-tasks.whenTaskAdded { task ->
-    if (task.name == 'bundleDebug') {
-        task.finalizedBy createJarDebug
+task unzipRelease(type: Copy) {
+    from zipTree("build/outputs/aar/kidoz-admob-release.aar").matching {
+        include 'classes.jar'
     }
-}
 
-// delete & recreate release Jar
-task deleteJarRelease(type: Delete) {
-    delete 'outputs/jar/kidoz-admob-release.jar'
-}
-
-task createJarRelease(type: Copy) {
-    from('build/intermediates/bundles/default/') //not clear why under this project 'release' folder is called 'default'
-    into('build/outputs/jar')
-    include('classes.jar')
     rename('classes.jar', 'kidoz-admob-release.jar')
+    into ("build/outputs/jar")
 }
 
-//execute debug Jar creation after last build task
-tasks.whenTaskAdded { task ->
-    if (task.name == 'bundleRelease') {
-        task.finalizedBy createJarRelease
-    }
-}
-*/
 
+build.dependsOn unzipDebug
+build.dependsOn unzipRelease
