@@ -39,7 +39,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-ads:18.3.0'
     compile group: 'org.greenrobot', name: 'eventbus', version: '3.0.0'
     //compile project(path: ':KidozSDK', configuration: 'mainDebug')
-    compile 'com.kidoz.sdk:KidozSDK:0.8.8.5@aar'
+    compile 'com.kidoz.sdk:KidozSDK:0.8.8.7@aar'
 
 }
 
