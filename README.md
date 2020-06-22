@@ -77,8 +77,10 @@ KidozManager.setRewardedEvents(<new BaseInterstitial.IOnInterstitialRewardedEven
 </br>
 * Please Note: you can change the Kidoz adapter classpath in your project but make sure the class names you put in the AdMob dashboard correspond to your final adapter location.
 
-</br>
+
+
 ## KIDOZ - Admob Settings Recommendations ##
+
 _Programmatic_ **|** _app-ads.txt_
 
 1. We recommend setting up app-ads.txt for the apps that use KIDOZ sdk in your AdMob dashboard. This may prevent blocking of programmatic ads.
