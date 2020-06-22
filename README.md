@@ -77,7 +77,7 @@ KidozManager.setRewardedEvents(<new BaseInterstitial.IOnInterstitialRewardedEven
 </br>
 * Please Note: you can change the Kidoz adapter classpath in your project but make sure the class names you put in the AdMob dashboard correspond to your final adapter location.
 
-
+</br>
 ## KIDOZ - Admob Settings Recommendations ##
 _Programmatic_ **|** _app-ads.txt_
 
@@ -85,7 +85,7 @@ _Programmatic_ **|** _app-ads.txt_
 Once you add an app and generate the relevant entry for it, you can paste it into your app-ads.txt file. Copy the entry while pressing on "HOW TO SET UP APP-ADS.TXT" link (as described in the screenshot below):
 
 <p align="left">
-  <img src="https://cdn.kidoz.net/new/sdk/GITHUB_GRAPHICS/KIDOZ_SDK_Documentaions/admob_app_ads_txt.png" />
+  <img src="https://cdn.kidoz.net/new/sdk/GITHUB_GRAPHICS/KIDOZ_SDK_Documentaions/admob_app_ads_txt2.png" />
 </p>
 
 2. Additionally, it is highly recommended to add the KIDOZ app-ads.txt in order to increase the fill-rate of your application, as described [HERE](https://kidoz.net/introappadstext)
