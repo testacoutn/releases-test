@@ -77,6 +77,29 @@ KidozManager.setRewardedEvents(<new BaseInterstitial.IOnInterstitialRewardedEven
 </br>
 * Please Note: you can change the Kidoz adapter classpath in your project but make sure the class names you put in the AdMob dashboard correspond to your final adapter location.
 
+
+## KIDOZ - Admob Settings Recommendations ##
+_Programmatic_ **|** _app-ads.txt_
+
+1. We recommend setting up app-ads.txt for the apps that use KIDOZ sdk in your AdMob dashboard. This may prevent blocking of programmatic ads.
+Once you add an app and generate the relevant entry for it, you can paste it into your app-ads.txt file. Copy the entry while pressing on "HOW TO SET UP APP-ADS.TXT" link (as described in the screenshot below):
+
+<p align="center">
+  <img src="https://cdn.kidoz.net/new/sdk/GITHUB_GRAPHICS/KIDOZ_SDK_Documentaions/admob_app_ads_txt.png" width="75%"/>
+</p>
+
+
+2. Additionally, it is highly recommended to add the KIDOZ app-ads.txt in order to increase the fill-rate of your application, as described [HERE](https://kidoz.net/introappadstext)
+
+3. Set up $9 CPM for KIDOZ, to make sure the requests are being passed to Kidoz.
+
+<p align="center">
+  <img src="https://cdn.kidoz.net/new/sdk/GITHUB_GRAPHICS/KIDOZ_SDK_Documentaions/admob_adsources_waterfall.png" />
+</p>
+
+## Important note: ##
+While mapping the Kidoz Ad unit on Admob, it is highly recommended to run some Json validator on the parameters passed to the Class name (AppID and Token). This method may minimize parsing mistakes that may rise on initial connection.
+
  
 
 License
