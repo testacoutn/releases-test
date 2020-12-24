@@ -1,5 +1,6 @@
 
 
+
 # KIDOZ_ADMOB_ADAPTER
 Kidoz AdMob mediation adapter Version 1.6 
 Built and tested with Google Mobile Ads SDK 18.2.0
@@ -21,17 +22,18 @@ Built and tested with Google Mobile Ads SDK 18.2.0
 3.1. You can get Kidoz SDK as a Gradle dependency (together with it's needed dependencies) using the following lines:
 ```
     compile group: 'org.greenrobot', name: 'eventbus', version: '3.0.0'
-    compile 'com.kidoz.sdk:KidozSDK:0.8.8.8@aar'
+    compile 'com.kidoz.sdk:KidozSDK:8.9.0@aar'
 ```
 3.2. Please make sure you have a set up Kidoz publisher account.
-3.3. The plugin itself consists of the java files inside the 'pluginFiles' directory, copy this entire package to your own project or you can copy the kidoz-admob.jar file instead.
+3.3. Add the Kidoz AdMob mediation plugin by coping `` kidoz-admob.jar`` to the libs folder in your project.
 
-3.4. Set your Kidoz PublisherId & PublisherToken in the adapter using the following(Only if using the pluginFiles):
+3.4 Make sure you have added libs folder to your dependencies by:
+
+ ```
+  implementation fileTree(include: ['*.jar','*.aar'], dir: 'libs')  
 ```
-KidozManager.setKidozPublisherId(<publisherId>)
-KidozManager.setKidozPublisherToken(<publisherToken>)
-```
-3.5 Set your Kidoz PublisherId & PublisherToken by setting  a Custom Events settings in the `Parameter` field(If using the kidoz-admob.jar):
+
+3.5 Set your Kidoz PublisherId & PublisherToken by setting  a Custom Events settings in the `Parameter` field:
 ```
  For Banner:
  {"AppID":"publisherId", "Token":"publisherToken"}
@@ -42,12 +44,6 @@ KidozManager.setKidozPublisherToken(<publisherToken>)
  For Rewarded Video:
  {"AppID":"publisherId", "Token":"publisherToken"}
 ```
-3.6. If you want to connect directly with the Kidoz reward events use the following:
-```
-KidozManager.setRewardedEvents(<new BaseInterstitial.IOnInterstitialRewardedEventListener>);
-(Only if using the pluginFiles)
-```
-
 
 </br>
 

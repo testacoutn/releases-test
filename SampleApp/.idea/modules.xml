@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/KidozSDK/KidozSDK.iml" filepath="$PROJECT_DIR$/KidozSDK/KidozSDK.iml" />
-      <module fileurl="file://$PROJECT_DIR$/SampleApp.iml" filepath="$PROJECT_DIR$/SampleApp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/kidoz-admob/kidoz-admob.iml" filepath="$PROJECT_DIR$/kidoz-admob/kidoz-admob.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SampleApp.iml" filepath="$PROJECT_DIR$/SampleApp.iml" group="SampleApp" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="SampleApp/app" />
     </modules>
   </component>
 </project>

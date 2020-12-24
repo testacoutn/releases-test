@@ -34,12 +34,10 @@ android {
 
 dependencies {
     //AdMob
-    //compile 'com.google.android.gms:play-services-ads:18.2.0'
+    implementation fileTree(include: ['*.jar','*.aar'], dir: 'libs')
     compile 'com.google.android.gms:play-services-ads:19.0.1'
-
     compile group: 'org.greenrobot', name: 'eventbus', version: '3.0.0'
-    //Kidoz AdMob Plugin
-    compile project (':kidoz-admob')
+    compile 'com.kidoz.sdk:KidozSDK:8.9.0@aar'
 
 }
 
