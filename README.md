@@ -22,7 +22,7 @@ Built and tested with Google Mobile Ads SDK 18.2.0
 3.1. You can get Kidoz SDK as a Gradle dependency (together with it's needed dependencies) using the following lines:
 ```
     compile group: 'org.greenrobot', name: 'eventbus', version: '3.0.0'
-    compile 'com.kidoz.sdk:KidozSDK:8.9.0@aar'
+    compile 'com.kidoz.sdk:KidozSDK:8.9.1@aar'
 ```
 3.2. Please make sure you have a set up Kidoz publisher account.
 3.3. Add the Kidoz AdMob mediation plugin by coping `` kidoz-admob.jar`` to the libs folder in your project.
