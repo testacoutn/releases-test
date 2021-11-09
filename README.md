@@ -23,19 +23,15 @@ Built and tested with Google Mobile Ads SDK 19.0.1
 
 3.1. Add this Gradle dependency for the SDK using the following :
 ```
-    compile group: 'org.greenrobot', name: 'eventbus', version: '3.0.0'
+    implementation "org.greenrobot:eventbus:3.2.0"
+    implementation "net.kidoz.sdk:kidoz-android-native:8.9.4"
+    implementation "net.kidoz.sdk:kidoz-android-admob-adapter:1.7.0"
 ```
 3.2. Please make sure you have a set up Kidoz publisher account.
 3.3. Add the Kidoz SDK  by coping `` KidozSDK.aar`` to the libs folder in your project.
 3.4. Add the Kidoz AdMob mediation plugin by coping `` kidoz-admob.jar`` to the libs folder in your project.
 
-3.5 Make sure you have added libs folder to your dependencies by:
-
- ```
-  implementation fileTree(include: ['*.jar','*.aar'], dir: 'libs')  
-```
-
-3.6 Set your Kidoz PublisherId & PublisherToken by setting  a Custom Events settings in the `Parameter` field:
+3.5 Set your Kidoz PublisherId & PublisherToken by setting  a Custom Events settings in the `Parameter` field:
 ```
  For Banner:
  {"AppID":"publisherId", "Token":"publisherToken"}
