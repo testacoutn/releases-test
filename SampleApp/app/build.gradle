@@ -46,6 +46,7 @@ dependencies {
 
     // Admob
     implementation "com.google.android.gms:play-services-ads:20.2.0"
+    //Kidoz
     implementation "org.greenrobot:eventbus:3.2.0"
     implementation "net.kidoz.sdk:kidoz-android-native:8.9.5"
     implementation "net.kidoz.sdk:kidoz-android-admob-adapter:1.8.0"
