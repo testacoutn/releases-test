@@ -4,34 +4,17 @@
 
 
 # KIDOZ_ADMOB_ADAPTER
-Kidoz AdMob mediation adapter Version 1.7 
-Built and tested with Google Mobile Ads SDK 19.0.1
+Kidoz AdMob mediation adapter Version 1.8.0 
+Built and tested with Google Mobile Ads SDK 20.2.0
 
 </br>
 
 **Prerequisits:**
 * To use the Kidoz SDK adapter for AdMob you should make sure you have:
-1. Google Mobile Ads SDK 17.2.0 or higher integrated in your project as explained [HERE](https://developers.google.com/admob/android/quick-start):
-2. A fully functional AdMob ad placement.
-3. Kidoz SDK built with your project.
+1. Kidoz Publisher Account. Please sign up [HERE](http://accounts.kidoz.net/publishers/register?utm_source=&utm_content=&utm_campaign=&utm_medium=).
+2. Google Mobile Ads SDK 20.2.0 or higher integrated in your project as explained [HERE](https://developers.google.com/admob/android/quick-start):
 
-```css
-
-*** Please note - Kidoz SDK adapter for AdMob Version 1.5 and above is applicable only from Kidoz SDK 0.8.8.2 release 
-
-```
-
-3.1. Add this Gradle dependency for the SDK using the following :
-```
-    implementation "org.greenrobot:eventbus:3.2.0"
-    implementation "net.kidoz.sdk:kidoz-android-native:8.9.4"
-    implementation "net.kidoz.sdk:kidoz-android-admob-adapter:1.7.0"
-```
-3.2. Please make sure you have a set up Kidoz publisher account.
-3.3. Add the Kidoz SDK  by coping `` KidozSDK.aar`` to the libs folder in your project.
-3.4. Add the Kidoz AdMob mediation plugin by coping `` kidoz-admob.jar`` to the libs folder in your project.
-
-3.5 Set your Kidoz PublisherId & PublisherToken by setting  a Custom Events settings in the `Parameter` field:
+3.3 Set your Kidoz PublisherId & PublisherToken by setting  a Custom Events settings in the `Parameter` field:
 ```
  For Banner:
  {"AppID":"publisherId", "Token":"publisherToken"}
@@ -46,8 +29,12 @@ Built and tested with Google Mobile Ads SDK 19.0.1
 </br>
 
 **Integration Steps:**
-
-* Include the 'com.kidoz.mediation.admob.adapters' package in your project or the kidoz-admob.jar.
+Add this Gradle dependency for the SDK using the following :
+```
+    implementation "org.greenrobot:eventbus:3.2.0"
+    implementation "net.kidoz.sdk:kidoz-android-native:8.9.5"
+    implementation "net.kidoz.sdk:kidoz-android-admob-adapter:1.8.0"
+```
 
 * Define Kidoz Interstitial and/or Rewarded Video Custom events as explained [HERE](https://support.google.com/admob/answer/3083407):
  
@@ -58,12 +45,6 @@ Built and tested with Google Mobile Ads SDK 19.0.1
 ## KIDOZ Rewarded Video Adapter
 * Set the following full path in the `Class Name` field: </br>
 (Example: com.kidoz.mediation.admob.adapters.KidozAdMobMediationRewardedAdapter)
-
-    ```
-    Note: for Google Mobile Ads SDK lower than 17.2.0 
-      Set the full path in the Class Name field:  
-      com.kidoz.mediation.admob.adapters.KidozAdMobMediationRewardedLegacyAdapterr
-    ```
 
 ## KIDOZ Banner Adapter
 * Set the following full path in the `Class Name` field: </br>
