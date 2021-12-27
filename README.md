@@ -30,7 +30,9 @@ Define Kidoz Interstitial/Rewarded Video/Banner Custom events as explained [HERE
  
 **KIDOZ Interstitial Adapter**
 * Set the following full path in the `Class Name` field: </br>
-```com.kidoz.mediation.admob.adapters.KidozAdMobMediationInterstitialAdapter```
+```
+com.kidoz.mediation.admob.adapters.KidozAdMobMediationInterstitialAdapter
+```
 * Set the following json string in the `Parameter (optional)` field: </br>
 `{"AppID":"publisherId", "Token":"publisherToken"}` <B>*</B>
 
