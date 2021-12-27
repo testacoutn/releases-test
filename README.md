@@ -3,74 +3,50 @@
 
 
 
-# KIDOZ_ADMOB_ADAPTER
-Kidoz AdMob mediation adapter Version 1.7 
-Built and tested with Google Mobile Ads SDK 19.0.1
+# KIDOZ AdMob Adapter
+Kidoz AdMob mediation adapter v1.8.0 <BR>
+Kidoz SDK v8.9.5 <BR>
+Built and tested with Google Mobile Ads SDK 20.2.0 <BR>
+
+
+## Prerequisits: ##
+To use the Kidoz SDK adapter for AdMob you should make sure you have:
+* Kidoz Publisher Account. Sign up [HERE](http://accounts.kidoz.net/publishers/register?utm_source=&utm_content=&utm_campaign=&utm_medium=) to set your account and receive your publisherId and publisherToken.
+* Google Mobile Ads SDK 20.0.0 or higher integrated in your project as explained [HERE](https://developers.google.com/admob/android/quick-start):
 
 </br>
 
-**Prerequisits:**
-* To use the Kidoz SDK adapter for AdMob you should make sure you have:
-1. Google Mobile Ads SDK 17.2.0 or higher integrated in your project as explained [HERE](https://developers.google.com/admob/android/quick-start):
-2. A fully functional AdMob ad placement.
-3. Kidoz SDK built with your project.
-
-```css
-
-*** Please note - Kidoz SDK adapter for AdMob Version 1.5 and above is applicable only from Kidoz SDK 0.8.8.2 release 
-
-```
-
-3.1. Add this Gradle dependency for the SDK using the following :
+## Integration Steps: ##
+Add the following dependencies to your app's build.gradle file:
 ```
     implementation "org.greenrobot:eventbus:3.2.0"
-    implementation "net.kidoz.sdk:kidoz-android-native:8.9.4"
-    implementation "net.kidoz.sdk:kidoz-android-admob-adapter:1.7.0"
-```
-3.2. Please make sure you have a set up Kidoz publisher account.
-3.3. Add the Kidoz SDK  by coping `` KidozSDK.aar`` to the libs folder in your project.
-3.4. Add the Kidoz AdMob mediation plugin by coping `` kidoz-admob.jar`` to the libs folder in your project.
-
-3.5 Set your Kidoz PublisherId & PublisherToken by setting  a Custom Events settings in the `Parameter` field:
-```
- For Banner:
- {"AppID":"publisherId", "Token":"publisherToken"}
-
- For Interstitial:
- {"AppID":"publisherId", "Token":"publisherToken"}
-
- For Rewarded Video:
- {"AppID":"publisherId", "Token":"publisherToken"}
+    implementation "net.kidoz.sdk:kidoz-android-native:8.9.5"
+    implementation "net.kidoz.sdk:kidoz-android-admob-adapter:1.8.0"
 ```
 
-</br>
-
-**Integration Steps:**
-
-* Include the 'com.kidoz.mediation.admob.adapters' package in your project or the kidoz-admob.jar.
-
-* Define Kidoz Interstitial and/or Rewarded Video Custom events as explained [HERE](https://support.google.com/admob/answer/3083407):
+<BR>
+Define Kidoz Interstitial/Rewarded Video/Banner Custom events as explained [HERE](https://support.google.com/admob/answer/3083407):
  
-## KIDOZ Interstitial Adapter
+**KIDOZ Interstitial Adapter**
 * Set the following full path in the `Class Name` field: </br>
-(Example: com.kidoz.mediation.admob.adapters.KidozAdMobMediationInterstitialAdapter)
+`com.kidoz.mediation.admob.adapters.KidozAdMobMediationInterstitialAdapter`
+* Set the following json string in the `Parameter (optional)` field: </br>
+`{"AppID":"publisherId", "Token":"publisherToken"}` <B>*</B>
 
-## KIDOZ Rewarded Video Adapter
+**KIDOZ Rewarded Video Adapter**
 * Set the following full path in the `Class Name` field: </br>
-(Example: com.kidoz.mediation.admob.adapters.KidozAdMobMediationRewardedAdapter)
+`com.kidoz.mediation.admob.adapters.KidozAdMobMediationRewardedAdapter`
+* Set the following json string in the `Parameter (optional)` field: </br>
+`{"AppID":"publisherId", "Token":"publisherToken"}` <B>*</B>
 
-    ```
-    Note: for Google Mobile Ads SDK lower than 17.2.0 
-      Set the full path in the Class Name field:  
-      com.kidoz.mediation.admob.adapters.KidozAdMobMediationRewardedLegacyAdapterr
-    ```
-
-## KIDOZ Banner Adapter
+**KIDOZ Banner Adapter**
 * Set the following full path in the `Class Name` field: </br>
-(Example: com.kidoz.mediation.admob.adapters.KidozAdMobMediationBannerAdapter)
+`com.kidoz.mediation.admob.adapters.KidozAdMobMediationBannerAdapter`
+* Set the following json string in the `Parameter (optional)` field: </br>
+`{"AppID":"publisherId", "Token":"publisherToken"}` <B>*</B>
 </br>
-* Please Note: you can change the Kidoz adapter classpath in your project but make sure the class names you put in the AdMob dashboard correspond to your final adapter location.
 
+<B>*</B> Replace `publisherId` and `publisherToken` with the credentials received during the Kidoz Publisher Account sign up.
 
 
 ## KIDOZ - Admob Settings Recommendations ##
