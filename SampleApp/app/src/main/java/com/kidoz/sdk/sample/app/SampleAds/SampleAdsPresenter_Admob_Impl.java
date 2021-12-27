@@ -1,10 +1,12 @@
 package com.kidoz.sdk.sample.app.SampleAds;
 
+import android.widget.Toast;
+
 import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.OnUserEarnedRewardListener;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.rewarded.RewardItem;
 import com.google.android.gms.ads.rewarded.RewardedAd;
-import com.google.android.gms.ads.rewarded.RewardedAdCallback;
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 import com.kidoz.sdk.sample.app.SampleAds.model.SampleAdsAdMobModel;
 
@@ -29,8 +31,12 @@ public class SampleAdsPresenter_Admob_Impl implements SampleAdsPresenter
         mMainView = mainView;
         mAdMobModel = new SampleAdsAdMobModel();
 
-        setupAdMobInterstitial();
         setupAdMobBanner();
+    }
+
+
+    @Override
+    public void onCreate(){
     }
 
     private void setupAdMobBanner()
@@ -38,58 +44,11 @@ public class SampleAdsPresenter_Admob_Impl implements SampleAdsPresenter
         mAdMobModel.setupAdMobBanner(mMainView.getActivity());
     }
 
-    private void setupAdMobInterstitial()
-    {
-        mAdMobModel.setupAdMobInterstitial(new AdListener()
-        {
-            @Override
-            public void onAdClosed()
-            {
-                super.onAdClosed();
-                mMainView.showFeedBackText("AdMob | onAdClosed()");
-            }
-
-            @Override
-            public void onAdFailedToLoad(int i)
-            {
-                super.onAdFailedToLoad(i);
-                mMainView.showFeedBackText("AdMob | onAdFailedToLoad(" + i + ").");
-            }
-
-            @Override
-            public void onAdLeftApplication()
-            {
-                super.onAdLeftApplication();
-                mMainView.showFeedBackText("AdMob | onAdLeftApplication()");
-            }
-
-            @Override
-            public void onAdOpened()
-            {
-                super.onAdOpened();
-                mMainView.showFeedBackText("AdMob | onAdOpened()");
-            }
-
-            @Override
-            public void onAdLoaded()
-            {
-                super.onAdLoaded();
-                mMainView.showFeedBackText("AdMob | onAdLoaded()");
-            }
-        }, mMainView.getActivity());
-    }
-
-    @Override
-    public void onCreate()
-    {
-        mAdMobModel.initAdMob(mMainView.getActivity());
-    }
-
     @Override
     public void onClick_LoadInterstitial()
     {
         mMainView.showFeedBackText("AdMob | trying to load interstitial ad...");
-        mAdMobModel.loadInterstitial(ADMOB_IS_TESTING);
+        mAdMobModel.loadInterstitial(mMainView);
     }
 
     @Override
@@ -97,8 +56,8 @@ public class SampleAdsPresenter_Admob_Impl implements SampleAdsPresenter
     {
         mMainView.showFeedBackText("AdMob | trying to show ad...");
         InterstitialAd adMobInterstitial = mAdMobModel.getAdMobInterstitial();
-        if (adMobInterstitial.isLoaded()) {
-            adMobInterstitial.show();
+        if (adMobInterstitial != null) {
+            adMobInterstitial.show(mMainView.getActivity());
         } else {
             mMainView.showFeedBackText(ADMOB_INTERSTITIAL_NOT_LOADED);
         }
@@ -107,46 +66,20 @@ public class SampleAdsPresenter_Admob_Impl implements SampleAdsPresenter
     @Override
     public void onClick_LoadRewarded()
     {
-        mAdMobModel.setupAdMobRewarded(mMainView.getActivity());
         mMainView.showFeedBackText("AdMob | trying to load rewarded ad...");
-        mAdMobModel.loadRewardedVideo(new RewardedAdLoadCallback(){
-            @Override
-            public void onRewardedAdLoaded() {
-                mMainView.showFeedBackText("AdMob | onRewardedAdLoaded()");
-            }
-
-            @Override
-            public void onRewardedAdFailedToLoad(int errorCode) {
-                mMainView.showFeedBackText("AdMob | onRewardedAdFailedToLoad(" + errorCode + ").");
-            }
-
-        });
+        mAdMobModel.loadRewardedVideo(mMainView);
     }
 
     @Override
     public void onClick_ShowRewarded()
     {
         RewardedAd adMobRewarded = mAdMobModel.getAdMobRewarded();
-        if (adMobRewarded.isLoaded()) {
-            adMobRewarded.show(mMainView.getActivity(),new RewardedAdCallback(){
+        if (adMobRewarded != null) {
+            adMobRewarded.show(mMainView.getActivity(), new OnUserEarnedRewardListener() {
                 @Override
-                public void onRewardedAdOpened() {
-                    mMainView.showFeedBackText("AdMob | onRewardedAdOpened()");
-                }
-
-                @Override
-                public void onRewardedAdClosed() {
-                    mMainView.showFeedBackText("AdMob | onRewardedAdClosed()");
-                }
-
-                @Override
-                public void onUserEarnedReward(@NonNull RewardItem reward) {
-                    mMainView.showFeedBackText("AdMob | onRewarded | currency: " + reward.getType() + "  amount: " + reward.getAmount());
-                }
-
-                @Override
-                public void onRewardedAdFailedToShow(int errorCode) {
-                    mMainView.showFeedBackText("AdMob | onRewardedAdFailedToShow()");
+                public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
+                    mMainView.showFeedBackText("AdMob | Reward received");
+                    Toast.makeText(mMainView.getActivity(),"Rewarded received",Toast.LENGTH_LONG).show();
                 }
             });
         } else {
@@ -157,13 +90,7 @@ public class SampleAdsPresenter_Admob_Impl implements SampleAdsPresenter
     @Override
     public void onClick_LoadBanner()
     {
-        mAdMobModel.loadBanner();
-    }
-
-    @Override
-    public void onClick_ShowBanner()
-    {
-        mAdMobModel.showBanner(); ////admob loads and shows on loadAd() call (this call does nothing atm).
+        mAdMobModel.loadBanner(mMainView);
     }
 
     @Override

@@ -12,6 +12,5 @@ public interface SampleAdsPresenter
     void onClick_LoadRewarded();
     void onClick_ShowRewarded();
     void onClick_LoadBanner();
-    void onClick_ShowBanner();
     void onClick_CloseBanner();
 }
