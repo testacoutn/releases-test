@@ -25,11 +25,12 @@ Add the following dependencies to your app's build.gradle file:
     implementation "net.kidoz.sdk:kidoz-android-admob-adapter:1.8.0"
 ```
 
+<BR>
 Define Kidoz Interstitial/Rewarded Video/Banner Custom events as explained [HERE](https://support.google.com/admob/answer/3083407):
  
 **KIDOZ Interstitial Adapter**
 * Set the following full path in the `Class Name` field: </br>
-`com.kidoz.mediation.admob.adapters.KidozAdMobMediationInterstitialAdapter`
+```com.kidoz.mediation.admob.adapters.KidozAdMobMediationInterstitialAdapter```
 * Set the following json string in the `Parameter (optional)` field: </br>
 `{"AppID":"publisherId", "Token":"publisherToken"}` <B>*</B>
 
@@ -46,7 +47,7 @@ Define Kidoz Interstitial/Rewarded Video/Banner Custom events as explained [HERE
 `{"AppID":"publisherId", "Token":"publisherToken"}` <B>*</B>
 </br>
 
-<B>*</B> Replace publisherId and publisherToken with the credentials received during the Kidoz Publisher Account sign up.
+<B>*</B> Replace `publisherId` and `publisherToken` with the credentials received during the Kidoz Publisher Account sign up.
 
 
 ## KIDOZ - Admob Settings Recommendations ##
