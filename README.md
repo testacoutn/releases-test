@@ -30,22 +30,22 @@ Define Kidoz Interstitial/Rewarded Video/Banner Custom events as explained [HERE
 * Set the following full path in the `Class Name` field: </br>
 com.kidoz.mediation.admob.adapters.KidozAdMobMediationInterstitialAdapter
 * Set the following json string in the `Parameter (optional)` field: </br>
-{"AppID":"publisherId", "Token":"publisherToken"}*
+{"AppID":"publisherId", "Token":"publisherToken"}<B>*</B>
 
 **KIDOZ Rewarded Video Adapter**
 * Set the following full path in the `Class Name` field: </br>
 com.kidoz.mediation.admob.adapters.KidozAdMobMediationRewardedAdapter
 * Set the following json string in the `Parameter (optional)` field: </br>
-{"AppID":"publisherId", "Token":"publisherToken"}*
+{"AppID":"publisherId", "Token":"publisherToken"}<B>*</B>
 
 **KIDOZ Banner Adapter**
 * Set the following full path in the `Class Name` field: </br>
 com.kidoz.mediation.admob.adapters.KidozAdMobMediationBannerAdapter
 * Set the following json string in the `Parameter (optional)` field: </br>
-{"AppID":"your_publisherId", "Token":"your_publisherToken"}*
+{"AppID":"publisherId", "Token":"publisherToken"}<B>*</B>
 </br>
 
-\* An example of a Parameter field with Kidoz Smaple Publisher Account {"AppID":"5", "Token":"i0tnrdwdtq0dm36cqcpg6uyuwupkj76s"}
+<B>*</B> Replace publisherId and publisherToken with the credentials received during the Kidoz Publisher Account sign up.
 
 
 ## KIDOZ - Admob Settings Recommendations ##
