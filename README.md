@@ -4,15 +4,14 @@
 
 
 # KIDOZ AdMob Adapter
-Kidoz AdMob mediation adapter v1.8.0 
-Kidoz SDK v8.9.5
-Built and tested with Google Mobile Ads SDK 20.2.0
+Kidoz AdMob mediation adapter v1.8.0 <BR>
+Kidoz SDK v8.9.5 <BR>
+Built and tested with Google Mobile Ads SDK 20.2.0 <BR>
 
-</br>
 
 ## Prerequisits: ##
 To use the Kidoz SDK adapter for AdMob you should make sure you have:
-* Kidoz Publisher Account. Please sign up [HERE](http://accounts.kidoz.net/publishers/register?utm_source=&utm_content=&utm_campaign=&utm_medium=) to set your account and receive your publisherId and publisherToken.
+* Kidoz Publisher Account. Sign up [HERE](http://accounts.kidoz.net/publishers/register?utm_source=&utm_content=&utm_campaign=&utm_medium=) to set your account and receive your publisherId and publisherToken.
 * Google Mobile Ads SDK 20.0.0 or higher integrated in your project as explained [HERE](https://developers.google.com/admob/android/quick-start):
 
 </br>
