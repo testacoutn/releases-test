@@ -10,9 +10,9 @@ Built and tested with Google Mobile Ads SDK 20.2.0
 </br>
 
 **Prerequisits:**
-* To use the Kidoz SDK adapter for AdMob you should make sure you have:
-1. Kidoz Publisher Account. Please sign up [HERE](http://accounts.kidoz.net/publishers/register?utm_source=&utm_content=&utm_campaign=&utm_medium=).
-2. Google Mobile Ads SDK 20.2.0 or higher integrated in your project as explained [HERE](https://developers.google.com/admob/android/quick-start):
+To use the Kidoz SDK adapter for AdMob you should make sure you have:
+* Kidoz Publisher Account. Please sign up [HERE](http://accounts.kidoz.net/publishers/register?utm_source=&utm_content=&utm_campaign=&utm_medium=) to set your account and receive your publisherId and publisherToken.
+* Google Mobile Ads SDK 20.2.0 or higher integrated in your project as explained [HERE](https://developers.google.com/admob/android/quick-start):
 
 3.3 Set your Kidoz PublisherId & PublisherToken by setting  a Custom Events settings in the `Parameter` field:
 ```
@@ -28,7 +28,7 @@ Built and tested with Google Mobile Ads SDK 20.2.0
 
 </br>
 
-**Integration Steps:**
+## Integration Steps:
 Add this Gradle dependency for the SDK using the following :
 ```
     implementation "org.greenrobot:eventbus:3.2.0"
@@ -36,21 +36,21 @@ Add this Gradle dependency for the SDK using the following :
     implementation "net.kidoz.sdk:kidoz-android-admob-adapter:1.8.0"
 ```
 
-* Define Kidoz Interstitial and/or Rewarded Video Custom events as explained [HERE](https://support.google.com/admob/answer/3083407):
+* Define Kidoz Interstitial/Rewarded Video/Banner Custom events as explained [HERE](https://support.google.com/admob/answer/3083407):
  
-## KIDOZ Interstitial Adapter
+** KIDOZ Interstitial Adapter
 * Set the following full path in the `Class Name` field: </br>
-(Example: com.kidoz.mediation.admob.adapters.KidozAdMobMediationInterstitialAdapter)
+com.kidoz.mediation.admob.adapters.KidozAdMobMediationInterstitialAdapter
 
-## KIDOZ Rewarded Video Adapter
+** KIDOZ Rewarded Video Adapter
 * Set the following full path in the `Class Name` field: </br>
-(Example: com.kidoz.mediation.admob.adapters.KidozAdMobMediationRewardedAdapter)
+com.kidoz.mediation.admob.adapters.KidozAdMobMediationRewardedAdapter
 
-## KIDOZ Banner Adapter
+** KIDOZ Banner Adapter
 * Set the following full path in the `Class Name` field: </br>
-(Example: com.kidoz.mediation.admob.adapters.KidozAdMobMediationBannerAdapter)
+com.kidoz.mediation.admob.adapters.KidozAdMobMediationBannerAdapter
 </br>
-* Please Note: you can change the Kidoz adapter classpath in your project but make sure the class names you put in the AdMob dashboard correspond to your final adapter location.
+
 
 
 
