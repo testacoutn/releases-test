@@ -13,7 +13,7 @@ Built and tested with Google Mobile Ads SDK 20.2.0
 ## Prerequisits: ##
 To use the Kidoz SDK adapter for AdMob you should make sure you have:
 * Kidoz Publisher Account. Please sign up [HERE](http://accounts.kidoz.net/publishers/register?utm_source=&utm_content=&utm_campaign=&utm_medium=) to set your account and receive your publisherId and publisherToken.
-* Google Mobile Ads SDK 20.2.0 or higher integrated in your project as explained [HERE](https://developers.google.com/admob/android/quick-start):
+* Google Mobile Ads SDK 20.0.0 or higher integrated in your project as explained [HERE](https://developers.google.com/admob/android/quick-start):
 
 </br>
 
