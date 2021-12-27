@@ -3,8 +3,9 @@
 
 
 
-# KIDOZ_ADMOB_ADAPTER
-Kidoz AdMob mediation adapter Version 1.8.0 
+# KIDOZ AdMob Adapter
+Kidoz AdMob mediation adapter v1.8.0 
+Kidoz SDK v8.9.5
 Built and tested with Google Mobile Ads SDK 20.2.0
 
 </br>
@@ -28,21 +29,21 @@ Define Kidoz Interstitial/Rewarded Video/Banner Custom events as explained [HERE
  
 **KIDOZ Interstitial Adapter**
 * Set the following full path in the `Class Name` field: </br>
-com.kidoz.mediation.admob.adapters.KidozAdMobMediationInterstitialAdapter
+`com.kidoz.mediation.admob.adapters.KidozAdMobMediationInterstitialAdapter`
 * Set the following json string in the `Parameter (optional)` field: </br>
-{"AppID":"publisherId", "Token":"publisherToken"}<B>*</B>
+`{"AppID":"publisherId", "Token":"publisherToken"}` <B>*</B>
 
 **KIDOZ Rewarded Video Adapter**
 * Set the following full path in the `Class Name` field: </br>
-com.kidoz.mediation.admob.adapters.KidozAdMobMediationRewardedAdapter
+`com.kidoz.mediation.admob.adapters.KidozAdMobMediationRewardedAdapter`
 * Set the following json string in the `Parameter (optional)` field: </br>
-{"AppID":"publisherId", "Token":"publisherToken"}<B>*</B>
+`{"AppID":"publisherId", "Token":"publisherToken"}` <B>*</B>
 
 **KIDOZ Banner Adapter**
 * Set the following full path in the `Class Name` field: </br>
-com.kidoz.mediation.admob.adapters.KidozAdMobMediationBannerAdapter
+`com.kidoz.mediation.admob.adapters.KidozAdMobMediationBannerAdapter`
 * Set the following json string in the `Parameter (optional)` field: </br>
-{"AppID":"publisherId", "Token":"publisherToken"}<B>*</B>
+`{"AppID":"publisherId", "Token":"publisherToken"}` <B>*</B>
 </br>
 
 <B>*</B> Replace publisherId and publisherToken with the credentials received during the Kidoz Publisher Account sign up.
