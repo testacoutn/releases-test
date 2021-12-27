@@ -37,6 +37,11 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
     lintOptions {
         abortOnError false
     }
@@ -45,7 +50,7 @@ android {
 dependencies {
 
     // Admob
-    implementation "com.google.android.gms:play-services-ads:20.2.0"
+    implementation "com.google.android.gms:play-services-ads:20.5.0"
     //Kidoz
     implementation "org.greenrobot:eventbus:3.2.0"
     implementation "net.kidoz.sdk:kidoz-android-native:8.9.5"
