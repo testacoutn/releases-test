@@ -8,8 +8,8 @@ android {
         applicationId "kidoz.android.native.admob"
         minSdkVersion 17
         targetSdkVersion 30
-        versionCode 103
-        versionName "1.7.0"
+        versionCode 104
+        versionName "1.8.1"
 
     }
 
