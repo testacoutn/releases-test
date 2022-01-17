@@ -25,6 +25,7 @@ Add the following dependencies to your app's build.gradle file:
 ```
 
 <BR>
+
 Define Kidoz Interstitial/Rewarded Video/Banner Custom events as explained [HERE](https://support.google.com/admob/answer/3083407):
  
 **KIDOZ Interstitial Adapter**
