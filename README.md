@@ -75,7 +75,7 @@ While mapping the Kidoz Ad unit on Admob, it is highly recommended to run some J
 License
 --------
 
-    Copyright 2015 KIDOZ, Inc.
+    Copyright 2022 KIDOZ, Inc.
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
