@@ -1,13 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion '29.0.2'
+    compileSdkVersion 31
 
     defaultConfig {
         applicationId "kidoz.android.native.admob"
         minSdkVersion 17
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 104
         versionName "1.8.1"
 
@@ -24,6 +23,7 @@ android {
 
     buildTypes {
         release {
+            debuggable true
             minifyEnabled false
             shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -38,8 +38,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility 1.8
-        targetCompatibility 1.8
+        sourceCompatibility 11
+        targetCompatibility 11
     }
 
     lintOptions {
@@ -54,7 +54,7 @@ dependencies {
     //Kidoz
     implementation "org.greenrobot:eventbus:3.2.0"
     implementation "net.kidoz.sdk:kidoz-android-native:8.9.5"
-    implementation "net.kidoz.sdk:kidoz-android-admob-adapter:1.8.0"
+    implementation "net.kidoz.sdk:kidoz-android-admob-adapter:1.8.1"
 
 }
 
