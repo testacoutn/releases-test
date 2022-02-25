@@ -14,7 +14,7 @@ android {
 
     signingConfigs {
         release {
-            storeFile file("../../../kidozdevkey")
+            storeFile file("kidozdevkey")
             storePassword "kidoz123"
             keyAlias "kidozdevkey"
             keyPassword "kidoz123"
