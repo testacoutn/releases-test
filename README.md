@@ -4,8 +4,8 @@
 
 
 # KIDOZ AdMob Adapter
-Kidoz SDK v8.9.5 <BR>
-Kidoz AdMob mediation adapter v1.8.1<BR>
+Kidoz SDK v8.9.7 <BR>
+Kidoz AdMob mediation adapter v1.8.1.1<BR>
 Built and tested with Google Mobile Ads SDK 20.5.0 (play-services-ads:20.5.0)<BR>
 
 
