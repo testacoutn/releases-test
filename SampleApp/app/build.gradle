@@ -7,8 +7,8 @@ android {
         applicationId "kidoz.android.native.admob"
         minSdkVersion 17
         targetSdkVersion 31
-        versionCode 104
-        versionName "1.8.1"
+        versionCode 105
+        versionName "8.9.7_1.8.1.1"
 
     }
 
@@ -53,8 +53,8 @@ dependencies {
     implementation "com.google.android.gms:play-services-ads:20.5.0"
     //Kidoz
     implementation "org.greenrobot:eventbus:3.2.0"
-    implementation "net.kidoz.sdk:kidoz-android-native:8.9.5"
-    implementation "net.kidoz.sdk:kidoz-android-admob-adapter:1.8.1"
+    implementation "net.kidoz.sdk:kidoz-android-native:8.9.7"
+    implementation "net.kidoz.sdk:kidoz-android-admob-adapter:1.8.1.1"
 
 }
 
