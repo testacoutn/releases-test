@@ -20,8 +20,8 @@ To use the Kidoz SDK adapter for AdMob you should make sure you have:
 Add the following dependencies to your app's build.gradle file:
 ```
     implementation "org.greenrobot:eventbus:3.2.0"
-    implementation "net.kidoz.sdk:kidoz-android-native:8.9.5"
-    implementation "net.kidoz.sdk:kidoz-android-admob-adapter:1.8.1"
+    implementation "net.kidoz.sdk:kidoz-android-native:8.9.7"
+    implementation "net.kidoz.sdk:kidoz-android-admob-adapter:1.8.1.1"
 ```
 
 <BR>
