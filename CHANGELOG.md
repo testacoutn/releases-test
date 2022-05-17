@@ -1,7 +1,10 @@
 
 # Changelog
 
-
+## 8.9.7
+- Improve stabilty
+## 8.9.4
+- Kidoz SDK compliance with new google familly app policy
 ## 8.9.2
 - Kidoz SDK stability improved
 - Crash fix
