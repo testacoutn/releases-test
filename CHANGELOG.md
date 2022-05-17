@@ -3,6 +3,7 @@
 
 ## 8.9.7
 - Improve stabilty
+- Update AdMob SDK to support v20.0.0 breaking changes on adpater v1.8.1.1
 ## 8.9.4
 - Kidoz SDK compliance with new google familly app policy
 ## 8.9.2
