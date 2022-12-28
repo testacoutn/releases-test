@@ -12,11 +12,7 @@ VERSION_CODE=$APPCENTER_BUILD_ID
 
 #echo "====$VERSION_CODE============"
 
-echo "************************************"
-echo "$ENVIRONMENT_VARIABLE"
-
-echo "************************************"
-echo "$JAVA_HOME"
+echo “VERSION=${VERSION}”
 
 
 sed -i "" 's/versionName "[^"]*"/versionName "'$versionName.$VERSION_CODE'"/g' $ANDROID_GRADLE_FILE
