@@ -10,7 +10,14 @@ ANDROID_GRADLE_FILE=$APPCENTER_SOURCE_DIRECTORY/SampleApp/app/build.gradle
 versionName=1.2.1
 VERSION_CODE=$APPCENTER_BUILD_ID
 
-echo "====$VERSION_CODE============"
+#echo "====$VERSION_CODE============"
+
+echo "************************************"
+echo "$ENVIRONMENT_VARIABLE"
+
+echo "************************************"
+echo "$JAVA_HOME"
+
 
 sed -i "" 's/versionName "[^"]*"/versionName "'$versionName.$VERSION_CODE'"/g' $ANDROID_GRADLE_FILE
 
