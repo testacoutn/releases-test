@@ -1,19 +1,22 @@
 #!/usr/bin/env bash
-# This updates the version number to be the build id from app center + the shift up to the build number from the google play store
-# Currently we don't shift the ios version number.
-echo "==================its pre build======================"
-PROJECT_NAME=Kidzo-andro
+
+echo "==================Running pre build script======================"
 
 ANDROID_GRADLE_FILE=$APPCENTER_SOURCE_DIRECTORY/SampleApp/app/build.gradle
 
-#INFO_PLIST_FILE=$APPCENTER_SOURCE_DIRECTORY/NameOfProjectOnAppCenter/ios/$PROJECT_NAME/Info.plist
-versionName=1.2.1
-VERSION_CODE=$APPCENTER_BUILD_ID
-
-#echo "====$VERSION_CODE============"
 
 echo “VERSION=${VERSION}”
 
 
-sed -i "" 's/versionName "[^"]*"/versionName "'$versionName.$VERSION_CODE'"/g' $ANDROID_GRADLE_FILE
+new_version=$VERSION.$APPCENTER_BUILD_ID
 
+#modifying the versionname with new_version in build.gradle file.
+sed -i "" 's/versionName "[^"]*"/versionName "'$new_version'"/g' $ANDROID_GRADLE_FILE
+
+#Using appcenter api's updating the VERSION environment variable in appcenter build configuration.
+
+export DATA=`curl -sX GET "https://api.appcenter.ms/v0.1/apps/testaccoutn/sampleapp/branches/master/config" -H "Content-Type: application/json" -H "X-API-Token: c105225fa414b9e5d5bcef925f400a5150af6610" |  jq '.environmentVariables += [{"name": "VERSION", "value":"$new_version"}]' -c`
+ 
+curl -X PUT -d "$DATA" "https://api.appcenter.ms/v0.1/apps/testaccoutn/sampleapp/branches/master/config" -H "Content-Type: application/json" -H "X-API-Token: c105225fa414b9e5d5bcef925f400a5150af6610"
+ 
+curl -sX GET "https://api.appcenter.ms/v0.1/apps/testaccoutn/sampleapp/branches/master/config" -H "Content-Type: application/json" -H "X-API-Token: c105225fa414b9e5d5bcef925f400a5150af6610" | jq
