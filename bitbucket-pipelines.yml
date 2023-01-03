@@ -19,6 +19,6 @@ pipelines:
             - node --version
             - npm install --location=global appcenter-cli
             #- appcenter apps list --token 7b16f03cb18ba7dad26dc378981e6560c8b1d441
-            - appcenter build queue -b master --app testaccoutn/test --token c105225fa414b9e5d5bcef925f400a5150af6610
+            - appcenter build queue -b master --app testaccoutn/sampleapp --token c105225fa414b9e5d5bcef925f400a5150af6610
             #- npm install // node js package manager installation
             #- npm install -g appcenter-cli // install app center cli using node js
