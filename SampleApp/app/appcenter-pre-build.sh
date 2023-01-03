@@ -4,8 +4,14 @@ echo "==================Running pre build script======================"
 
 ANDROID_GRADLE_FILE=$APPCENTER_SOURCE_DIRECTORY/SampleApp/app/build.gradle
 
-
+echo "*****environment variable******"
 echo “VERSION=${VERSION}”
+
+
+versioninbuildgradle=`cat $VERSION.$APPCENTER_BUILD_ID | grep versionName | awk '{print $2}' | tr -d \"`
+echo "******Versionname in build.gradle file"
+echo $versioninbuildgradle
+
 
 
 new_version=$VERSION.$APPCENTER_BUILD_ID
