@@ -9,7 +9,7 @@ pipelines:
           script:
             - echo "Manual triggers for staging!"
   branches:  # Pipelines that run automatically on a commit to a branch can also be triggered manually
-    main:
+    master:
     #staging:
       - step:
           name: Installing node.js and npm appcenter-cli
