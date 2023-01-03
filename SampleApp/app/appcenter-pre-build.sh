@@ -8,7 +8,7 @@ echo "*****environment variable******"
 echo “VERSION=${VERSION}”
 
 
-versioninbuildgradle=`cat $VERSION.$APPCENTER_BUILD_ID | grep versionName | awk '{print $2}' | tr -d \"`
+versioninbuildgradle=`cat $ANDROID_GRADLE_FILE | grep versionName | awk '{print $2}' | tr -d \"`
 echo "******Versionname in build.gradle file"
 echo $versioninbuildgradle
 
