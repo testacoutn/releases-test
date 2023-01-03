@@ -24,5 +24,3 @@ sed -i "" 's/versionName "[^"]*"/versionName "'$new_version'"/g' $ANDROID_GRADLE
 export DATA=`curl -sX GET "https://api.appcenter.ms/v0.1/apps/testaccoutn/sampleapp/branches/master/config" -H "Content-Type: application/json" -H "X-API-Token: c105225fa414b9e5d5bcef925f400a5150af6610" |  jq '.environmentVariables += [{"name": "VERSION", "value":"'$new_version'"}]' -c`
 
 curl -X PUT -d "$DATA" "https://api.appcenter.ms/v0.1/apps/testaccoutn/sampleapp/branches/master/config" -H "Content-Type: application/json" -H "X-API-Token: c105225fa414b9e5d5bcef925f400a5150af6610"
- 
-#curl -sX GET "https://api.appcenter.ms/v0.1/apps/testaccoutn/sampleapp/branches/master/config" -H "Content-Type: application/json" -H "X-API-Token: c105225fa414b9e5d5bcef925f400a5150af6610" | jq
