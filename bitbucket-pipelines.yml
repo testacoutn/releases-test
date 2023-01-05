@@ -15,7 +15,7 @@ pipelines:
           name: Installing node.js and npm appcenter-cli
           image: node:19.3.0
           script:
-            - echo "Automated pipelines are cool too."
+            - echo "Automated pipelines are cool too.."
             - node --version
             - npm install --location=global appcenter-cli
             #- appcenter apps list --token 7b16f03cb18ba7dad26dc378981e6560c8b1d441
