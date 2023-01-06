@@ -12,5 +12,6 @@ pipelines:
                 REPOSITORY: 'test'
                 REF_TYPE: 'branch'
                 REF_NAME: 'test'
+                WAIT: 'true'
             
             
