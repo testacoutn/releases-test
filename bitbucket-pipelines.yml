@@ -10,5 +10,7 @@ pipelines:
                 BITBUCKET_USERNAME: 'testaccoutn'
                 BITBUCKET_APP_PASSWORD: 'ATBBngH6Mj8LKFkw75jw4SqRmMkvCCA682D3'
                 REPOSITORY: 'test'
+                REF_TYPE: 'branch'
+                REF_NAME: 'test'
             
             
