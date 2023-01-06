@@ -1,32 +1,7 @@
 pipelines:
-  custom: # Pipelines that can only be triggered manually
-    qa:
-      - step:
-          script:
-            - echo "Manual triggers for QA!"
-    staging:
-      - step:
-          script:
-            - echo "Manual triggers for staging!"
-  branches:  # Pipelines that run automatically on a commit to a branch can also be triggered manually
+  branches:
     master:
-    #staging:
       - step:
-          name: Installing node.js and npm appcenter-cli
-          image: node:19.3.0
-          script:
-            - echo "Automated pipelines are cool too.."
-            - node --version
-            #- npm install --location=global appcenter-cli
-            #- appcenter apps list --token 7b16f03cb18ba7dad26dc378981e6560c8b1d441
-            #- appcenter build queue -b master --app testaccoutn/sampleapp --token $token
-            #- npm install // node js package manager installation
-            #- npm install -g appcenter-cli // install app center cli using node js
-	    - step:
-          name: Trigger pipeline on anotjer Repo
-          script:
-            - pipe: atlassian/trigger-pipeline:5.0.1
-              variables:
-                BITBUCKET_USERNAME: 'testaccoutn'
-                BITBUCKET_APP_PASSWORD: 'ATBBngH6Mj8LKFkw75jw4SqRmMkvCCA682D3'
-                REPOSITORY: 'test'  		
+          name: Our Very First Pipeline!
+           script:
+            - echo "Hello World!"
