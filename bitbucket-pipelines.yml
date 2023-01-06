@@ -1,6 +1,6 @@
 pipelines:
   branches:
-    master:
+    test:
       - step:
           name: Our Very First Pipeline!
           script:
