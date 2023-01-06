@@ -3,5 +3,5 @@ pipelines:
     master:
       - step:
           name: Our Very First Pipeline!
-           script:
+          script:
             - echo "Hello World!"
