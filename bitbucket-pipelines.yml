@@ -4,7 +4,7 @@ pipelines:
       - step:
           name: Our Very First Pipeline!
           script:
-            - echo "Hello World!"
+            - echo "Hello World!
             - echo "$?"
             - pipe: atlassian/trigger-pipeline:5.0.1
               variables:
